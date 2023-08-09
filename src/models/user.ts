@@ -1,4 +1,5 @@
 import { Schema, model, models } from 'mongoose';
+import { list } from 'postcss';
 
 const generoEnum = ['M', 'F'];
 const gradoEnum = [1, 2, 3, 4, 5];
@@ -20,19 +21,25 @@ const usuarioSchema = new Schema({
     enum: gradoEnum,
     required: [true, "El grado es requerido."],
   },
-  password: {
-    type: String,
-    required: [true, "La contraseña es requerida."],
-  },
   email: {
     type: String,
     required: [true, "El email es requerido."],
     unique: true,
   },
+  password: {
+    type: String,
+    required: [true, "La contraseña es requerida."],
+  },
   edad: {
     type: Number,
     required: [true, "La edad es requerida."],
-  }
+  },
+  tatRespuestas: {
+    type: [String],
+  },
+  idb: {
+    type: [Number]
+  },
 });
 
 const user = models.User || model('User', usuarioSchema);
