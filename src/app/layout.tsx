@@ -17,7 +17,7 @@ export default function RootLayout ({
       <body className='max-w-screen max-h-screen overflow-hidden'>
         <Image
          src="/background.jpg" 
-         className='absolute z-0 w-screen min-h-screen min-w-screen max-w-max bg-cover overflow-hidden opacity-50' 
+         className='absolute z-0 w-screen py-1 min-h-screen min-w-screen max-w-max bg-cover overflow-hidden opacity-50' 
          alt={'Background image.'}
          width={1920}
          height={1080}/>
