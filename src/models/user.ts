@@ -33,13 +33,7 @@ const usuarioSchema = new Schema({
   edad: {
     type: Number,
     required: [true, "La edad es requerida."],
-  },
-  tatRespuestas: {
-    type: [String],
-  },
-  idb: {
-    type: [Number]
-  },
+  }
 });
 
 const user = models.User || model('User', usuarioSchema);
