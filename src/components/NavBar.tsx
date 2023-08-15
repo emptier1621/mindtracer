@@ -1,14 +1,15 @@
 'use client'
 import { ReactElement, useState } from 'react'
-import { Link } from '../../../types/utils'
 import { IoIosMenu, IoIosCloseCircle } from 'react-icons/io'
 import Btn from './Btn'
-import Image from 'next/image'
 import Logo from './Logo'
+import { Link } from '../../types/utils'
+import { useSession } from 'next-auth/react'
 
 export default function NavBar (): ReactElement {
   const links: Link[] = [{ name: 'Recursos', link: '/recursos' }, { name: 'Contacto', link: 'https://github.com/emptier1621' }]
   const [mobileBtnState, setMobileBtnState] = useState(false)
+  const { data:session, status } = useSession()
 
   return (
     <nav className='shadow-md z-40 fixed w-full top-0 left-0'>

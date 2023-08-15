@@ -1,4 +1,3 @@
-import { ReactElement } from 'react'
 import './globals.css'
 import Image from 'next/image'
 import Providers from './Providers'

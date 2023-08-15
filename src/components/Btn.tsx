@@ -1,8 +1,8 @@
 import React, { ReactElement } from 'react'
-import { FormBtnProps } from '../../../types/utils'
 import Link from 'next/link'
 import { IoMdLogIn } from 'react-icons/io'
 import {AiTwotoneSave, AiOutlineRollback} from 'react-icons/ai'
+import { FormBtnProps } from '../../types/utils'
 
 export default function Btn (props: FormBtnProps): ReactElement {
   switch (props.type) {

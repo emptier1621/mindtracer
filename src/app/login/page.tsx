@@ -1,5 +1,5 @@
 "use client"
-import { FormEvent, ReactElement, useState } from 'react'
+import { FormEvent, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation';
@@ -20,7 +20,7 @@ export default function LoginPage () {
 
     if (res?.error) return setError(res.error as string)
 
-    if (res?.ok) return router.push("/dashboard")
+    if (res?.ok) return router.push("/dashboard/profile")
   };
 
   return (

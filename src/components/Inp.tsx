@@ -1,5 +1,5 @@
 import React from "react";
-import { InpProps } from "../../../types/utils";
+import { InpProps } from "../../types/utils";
 
 export default function Inp(props: InpProps) {
   switch (props.name) {

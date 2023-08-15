@@ -1,12 +1,12 @@
 "use client";
 import React, { FormEvent, useState } from "react";
-import Btn from "../components/Btn";
-import Inp from "../components/Inp";
-import NavBar from "../components/NavBar";
 import { AiOutlineUserAdd } from "react-icons/ai";
 import axios, { AxiosError } from "axios";
 import { signIn } from "next-auth/react"
 import { useRouter } from 'next/navigation'
+import Inp from "@/components/Inp";
+import Btn from "@/components/Btn";
+import NavBar from "@/components/NavBar";
 
 export default function RegisterPage() {
   const [error, setError] = useState("");
@@ -37,7 +37,7 @@ export default function RegisterPage() {
 
           console.log(res)
 
-          if(res?.ok) return router.push("/dashboard")
+          if(res?.ok) return router.push("/dashboard/profile")
         }
       }else{
         const errorMessage = "Las contraseñas no coinciden."
