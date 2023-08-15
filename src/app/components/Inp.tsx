@@ -14,7 +14,7 @@ export default function Inp(props: InpProps) {
             name={props.name}
             className="w-96 text-center focus p-2 bg-gray-700 border border-yellow-300 rounded-md placeholder:font-light placeholder:text-gray-400 focus:border-none selection:bg-purple-400 selection:text-black"
           >
-            <option selected> -- Seleccione un género -- </option>
+            <option> -- Seleccione un género -- </option>
             <option value="M">Masculino</option>
             <option value="F">Femenino</option>
           </select>

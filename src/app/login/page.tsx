@@ -2,7 +2,7 @@ import React, { ReactElement } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 
-export default function Login (): ReactElement {
+export default function LoginPage (): ReactElement {
   return (
     <div className='flex items-center justify-center min-h-screen text-center'>
       <div className='relative flex flex-col m-6 space-y-8 bg-opacity-40 bg-pink-600 shadow-2xl rounded-2xl md:flex-row md:space-y-0'>

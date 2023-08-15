@@ -9,7 +9,6 @@ export async function POST(request: Request) {
     await connectDB()
 
     const { nombreCompleto, genero, grado, password, email, edad } = await request.json()
-    console.log("Datos recibdos.", nombreCompleto, genero, grado, password, email, edad )
 
     if (!password || password.length < 6) {
       return NextResponse.json({ message: "La contraseña debe tener al menos 6 caracteres." }, { status: 400 })

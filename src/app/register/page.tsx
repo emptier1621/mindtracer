@@ -5,9 +5,12 @@ import Inp from "../components/Inp";
 import NavBar from "../components/NavBar";
 import { AiOutlineUserAdd } from "react-icons/ai";
 import axios, { AxiosError } from "axios";
+import { signIn } from "next-auth/react"
+import { useRouter } from 'next/navigation'
 
-export default function Register() {
+export default function RegisterPage() {
   const [error, setError] = useState("");
+  const router = useRouter()
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -16,7 +19,7 @@ export default function Register() {
       const password = formData.get("password")
       const repassword = formData.get('repassword')
       if( password === repassword ){
-        const res = axios.post("/api/auth/signup", {
+        const axiosResponse = await axios.post("/api/auth/signup", {
           nombreCompleto: formData.get("nombreCompleto"),
           genero: formData.get("genero"),
           grado: formData.get("grado"),
@@ -24,9 +27,20 @@ export default function Register() {
           email: formData.get("email"),
           edad: formData.get("edad")
         });
-        setError((await res).statusText)
+        setError((await axiosResponse).statusText)
+        if(error === "") {
+          const res = await signIn('credentials', {
+            email: axiosResponse.data.email,
+            password: formData.get("password"),
+            redirect: false
+          })
+
+          console.log(res)
+
+          if(res?.ok) return router.push("/dashboard")
+        }
       }else{
-        const errorMessage = "Las contraseñas no coinciden ..."
+        const errorMessage = "Las contraseñas no coinciden."
         setError(errorMessage)
       }
     } catch (error) {

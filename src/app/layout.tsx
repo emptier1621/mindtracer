@@ -1,6 +1,7 @@
 import { ReactElement } from 'react'
 import './globals.css'
 import Image from 'next/image'
+import Providers from './Providers'
 
 export const metadata = {
   title: 'MindTracer',
@@ -22,7 +23,7 @@ export default function RootLayout ({
          width={1920}
          height={1080}/>
         <div className='overflow-hidden relative h-screen z-40 text-2xl text-white bg-black bg-opacity-75 rounded-xl'>
-          {children}
+          <Providers>{children}</Providers>
         </div>
       </body>
     </html>
