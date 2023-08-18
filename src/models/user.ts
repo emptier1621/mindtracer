@@ -36,9 +36,16 @@ export const usuarioSchema = new Schema({
   },
   TAT: {
     type: Array<{
-      lamina: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20;
-      text: string;
-    }>
+      lamina: {
+        type: Number,
+        required: [true, "El número de lamina es requerido."]
+      }
+      text: {
+        type: String,
+        required: [true, "La respuesta es requerida."]
+      },
+    }>,
+    select: false
   }
 });
 
