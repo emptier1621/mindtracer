@@ -1,10 +1,9 @@
-import { Schema, model, models } from 'mongoose';
-import { list } from 'postcss';
-
+import { Schema, model, models } from 'mongoose'
 const generoEnum = ['M', 'F'];
 const gradoEnum = [1, 2, 3, 4, 5];
+const laminaEnum = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
 
-const usuarioSchema = new Schema({
+export const usuarioSchema = new Schema({
   nombreCompleto: {
     type: String,
     required: [true, "El nombre completo es requerido."],
@@ -34,6 +33,12 @@ const usuarioSchema = new Schema({
   edad: {
     type: Number,
     required: [true, "La edad es requerida."],
+  },
+  TAT: {
+    type: Array<{
+      lamina: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20;
+      text: string;
+    }>
   }
 });
 

@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { IoMdLogIn } from 'react-icons/io'
 import {AiTwotoneSave, AiOutlineRollback} from 'react-icons/ai'
 import { FormBtnProps } from '../../types/utils'
+import { signOut } from 'next-auth/react'
 
 export default function Btn (props: FormBtnProps): ReactElement {
   switch (props.type) {
@@ -56,6 +57,15 @@ export default function Btn (props: FormBtnProps): ReactElement {
           <IoMdLogIn className="mr-2" />
           {props.text}
         </Link>
+      );
+      case 'logout': 
+      return (
+        <button
+          className="flex w-max items-center text-sm justify-center text-white border border-white py-1 px-4 pb-2 rounded hover:scale-105 hover:bg-pink-700 duration-500 md:w-32 md:mx-5"
+          onClick={() => signOut()}>
+          <IoMdLogIn className="mr-2 scale-150" />
+          {props.text}
+        </button>
       );
     default:
       return (
