@@ -6,11 +6,9 @@ export default function Home () {
       <header className='relative z-50'>
         <NavBar />
       </header>
-      <main className='dark text-foreground bg-background'>
+
         <section id='objetivo'>
-          
         </section>
-      </main>
 
     </>
 

@@ -5,13 +5,13 @@ import { IoIosSunny, IoIosMoon } from "react-icons/io";
 export const ThemeSwitcher = () => {
   const { theme, setTheme } = useTheme()
   const handleClick = () =>{
-    setTheme(theme === 'light' ? 'dark' : 'light')
+    setTheme(theme === 'dark' ? 'light' : 'dark')
   }
   return (
     <Switch
       onClick={handleClick}
       size="lg"
-      color="secondary"
+      color="success"
       startContent={<IoIosSunny />}
       endContent={<IoIosMoon />}
     />

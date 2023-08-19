@@ -19,3 +19,16 @@ export interface InpProps {
   placeholder: string
   name: string
 }
+
+export interface UsuarioProps {
+  nombreCompleto: string;
+  genero: 'M' | 'F';
+  grado: 1 | 2 | 3 | 4 | 5;
+  email: string;
+  password: string;
+  edad: number;
+  TAT: Array<{
+    lamina: number;
+    text: string;
+  }>;
+}
