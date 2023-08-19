@@ -4,7 +4,7 @@ import {Navbar, NavbarBrand, NavbarContent, NavbarItem, Link, Button} from "@nex
 import { signOut, useSession } from "next-auth/react";
 import Logo from "./Logo";
 import { ThemeSwitcher } from "./ThemeSwitcher";
-
+import { IoIosPerson, IoMdPerson } from "react-icons/io";
 
 export default function NavBar(): ReactElement {
   const { data: session, status } = useSession();
@@ -49,14 +49,12 @@ export default function NavBar(): ReactElement {
         </NavbarItem>
       </NavbarContent>
       <NavbarContent justify="end">
-        <NavbarItem className="hidden lg:flex">
-          <Link href="#">Login</Link>
-        </NavbarItem>
-        <NavbarItem>
+        <NavbarItem className="hidden md:flex">
           <ThemeSwitcher/>
         </NavbarItem>
         <NavbarItem>
-          <Link color="secondary" href="/dashboard/profile">
+          <Link color="primary" href="/dashboard/profile">
+            <IoMdPerson className="mr-2"/>
             {session.user?.nombreCompleto}
           </Link>
         </NavbarItem>

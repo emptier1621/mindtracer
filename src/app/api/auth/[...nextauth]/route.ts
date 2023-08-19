@@ -3,6 +3,7 @@ import NextAuth from "next-auth/next";
 import CredentialsProvider from "next-auth/providers/credentials";
 import User from "@/models/user";
 import bcrypt from "bcryptjs"
+import { Usuario } from "../../../../../types/User";
 
 const handler = NextAuth({
   providers: [
@@ -36,7 +37,7 @@ const handler = NextAuth({
       return token;
     },
     session({session, token}){
-      session.user = token.user as any;
+      session.user = token.user as Usuario;
       return session
     }
   },

@@ -16,7 +16,7 @@ function Logo() {
         color="success"
         src="/mindtracer.svg"
         className="mr-4"
-      />Mind Tracer</Link>
+      /><p className="hidden md:flex">Mind Tracer</p></Link>
       
     </div>
     
