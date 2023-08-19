@@ -8,7 +8,7 @@ export default function ProfilePage() {
 
   //stastus "authenticated" significa logueado session.user tiene datos del usuario
   console.log(session, status)
-  const name: any|undefined = session?.user.nombreCompleto
+  const name = session?.user.nombreCompleto
   return (
     <div>
       <NavBar/>
