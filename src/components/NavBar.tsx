@@ -1,11 +1,10 @@
 "use client";
-import React, { ReactElement, useState } from "react";
+import React, { ReactElement } from "react";
 import {Navbar, NavbarBrand, NavbarContent, NavbarItem, Link, Button} from "@nextui-org/react";
 import { signOut, useSession } from "next-auth/react";
 import Logo from "./Logo";
 import { ThemeSwitcher } from "./ThemeSwitcher";
-import user from "@/models/user";
-import { UsuarioProps } from "../../types/utils";
+
 
 export default function NavBar(): ReactElement {
   const { data: session, status } = useSession();
@@ -58,7 +57,7 @@ export default function NavBar(): ReactElement {
         </NavbarItem>
         <NavbarItem>
           <Link color="secondary" href="/dashboard/profile">
-            {session.user?.email}
+            {session.user?.nombreCompleto}
           </Link>
         </NavbarItem>
         <NavbarItem>
