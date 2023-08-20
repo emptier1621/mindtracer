@@ -13,8 +13,8 @@ export default function RootLayout ({
 }) {
   return (
     <html lang='es' className='dark'>
-      <body className='max-w-screen max-h-screen'>
-        <div className='overflow-hidden relative h-screen z-40'>
+      <body className='max-w-screen'>
+        <div>
           <Providers>{children}</Providers>
         </div>
       </body>

@@ -6,7 +6,7 @@ import { signIn } from "next-auth/react"
 import { useRouter } from 'next/navigation'
 import Inp from "@/components/Inp";
 import Btn from "@/components/Btn";
-import NavBar from "@/components/NavBar";
+import NavBar from "@/components/NavBar/NavBar";
 
 export default function RegisterPage() {
   const [error, setError] = useState("");
