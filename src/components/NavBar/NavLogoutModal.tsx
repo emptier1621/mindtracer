@@ -1,5 +1,6 @@
 import { useDisclosure, Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button } from "@nextui-org/react";
 import { signOut } from "next-auth/react";
+import { AppRouterInstance } from "next/dist/shared/lib/app-router-context";
 import Link from "next/link";
 import React, { useState } from "react";
 import { IoMdLogOut } from "react-icons/io";

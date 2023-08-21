@@ -5,17 +5,11 @@ import {
   DropdownMenu,
   DropdownTrigger,
   Link,
-  Modal,
-  ModalBody,
-  ModalContent,
-  ModalFooter,
-  ModalHeader,
   NavbarContent,
-  NavbarItem,
   User,
   useDisclosure,
 } from "@nextui-org/react";
-import React, { useState } from "react";
+import React from "react";
 import { useSession } from "next-auth/react";
 import { IoIosArrowDown, IoMdDesktop, IoMdLogOut, IoMdPerson, IoMdPersonAdd } from "react-icons/io";
 import { convertTitleFormat } from "@/libs/stringUtils";
@@ -25,7 +19,7 @@ import NavRegisterModal from "./NavRegisterModal";
 import NavLoginModal from "./NavLoginModal";
 
 
-function NavCredentials() {
+function NavCredentials(props:{router:any}) {
   const { data: session, status } = useSession();
   const { isOpen: isOpenDropdown1, onOpen: onOpenDropdown1, onClose: onCloseDropdown1 } = useDisclosure();
   const { isOpen: isOpenDropdown2, onOpen: onOpenDropdown2, onClose: onCloseDropdown2 } = useDisclosure();
@@ -111,7 +105,7 @@ function NavCredentials() {
           <DropdownItem textValue="Credentials menu" className="h-14 flex-col gap-2 w-max items-center justify-center">
               <Button
                 rel="preload"
-                onPress={onOpenDropdown1}
+                onPress={onOpenDropdown2}
                 className="cursor-pointer items-center justify-center"
                 color="warning"variant="bordered"
               >
@@ -138,7 +132,8 @@ function NavCredentials() {
             
           </DropdownMenu>
         </Dropdown>
-        <NavRegisterModal isOpen={isOpenDropdown1} onClose={onCloseDropdown1}/>
+        <NavRegisterModal isOpen={isOpenDropdown1} onClose={onCloseDropdown1} router={props.router}/>
+        <NavLoginModal isOpen={isOpenDropdown2} onClose={onCloseDropdown2} router={props.router}/>
       </NavbarContent>
     );
   }

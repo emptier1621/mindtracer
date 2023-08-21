@@ -25,6 +25,7 @@ export default function NavBar(): ReactElement {
   const { data: session, status } = useSession();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeBtn, setActiveBtn] = useState("Cómo Funciona");
+  const router = useRouter()
 
   console.log(status);
   if (status === "loading") {
@@ -46,7 +47,7 @@ export default function NavBar(): ReactElement {
         </NavbarContent>
         <NavLogo/>
         <NavMenu />
-        <NavCredentials />
+        <NavCredentials router={router} />
         <NavbarMenu className="overflow-y-hidden">
           <NavMenu />
           <NavbarMenuItem className="w-full flex items-center justify-center">
@@ -75,7 +76,7 @@ export default function NavBar(): ReactElement {
         </NavbarContent>
         <NavLogo/>
         <NavMenu />
-        <NavCredentials />
+        <NavCredentials router={router}/>
         <NavbarMenu className="overflow-y-hidden">
           <NavMenu />
           <NavbarMenuItem className="w-full flex items-center justify-center">
