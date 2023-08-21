@@ -12,3 +12,5 @@ export interface Usuario {
   edad?:number
   TAT:[{lamina:string,texto:string}]
 }
+
+export type BackdropType = "opaque" | "blur" | "transparent" | undefined
