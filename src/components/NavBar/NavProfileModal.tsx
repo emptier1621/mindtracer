@@ -7,11 +7,11 @@ import { BackdropType } from '../../../types/User';
 import { convertTitleFormat } from '@/libs/stringUtils';
 
 
-function ProfileModal(props:{isOpen:boolean, onClose:()=>void}) {
+function NavProfileModal(props:{isOpen:boolean, onClose:()=>void}) {
   const { data: session, status } = useSession();
   const fullname = convertTitleFormat(session?.user.nombreCompleto)
   const gender = session?.user.genero==='M'?"Maculino":"Femenino"
-  const age = session?.user.edad
+  const age = session?.user.edad + " años"
   const grado = session?.user.grado.toString()
   const email = session?.user.email
   let grade = ""
@@ -63,7 +63,7 @@ function ProfileModal(props:{isOpen:boolean, onClose:()=>void}) {
                       label="Nombre completo"
                       variant="bordered"
                       defaultValue={fullname}
-                      className="px-4 py-1"
+                      className="px-2 py-1 hover:cursor-pointer"
                       startContent={<IoMdPerson/>}
                     />
                     <div className='flex'>
@@ -73,7 +73,7 @@ function ProfileModal(props:{isOpen:boolean, onClose:()=>void}) {
                       label="Género"
                       variant="bordered"
                       defaultValue={gender}
-                      className="px-4 py-1 w-1/2 flex"
+                      className="px-1 py-1 w-1/2 flex hover:cursor-pointer"
                       startContent={<IoMdTransgender/>}
                     />
                     <Input
@@ -81,8 +81,8 @@ function ProfileModal(props:{isOpen:boolean, onClose:()=>void}) {
                       type="text"
                       label="Edad"
                       variant="bordered"
-                      defaultValue={gender}
-                      className="px-4 py-1 w-1/2 flex"
+                      defaultValue={age}
+                      className="px-1 py-1 w-1/2 flex hover:cursor-pointer"
                       startContent={<IoMdTransgender/>}
                     />
                     </div>
@@ -92,7 +92,7 @@ function ProfileModal(props:{isOpen:boolean, onClose:()=>void}) {
                       label="Grado"
                       variant="bordered"
                       defaultValue={grade}
-                      className="px-4 py-1"
+                      className="px-2 py-1 hover:cursor-pointer"
                       startContent={<IoMdMail/>}
                     />
                     
@@ -124,4 +124,4 @@ function ProfileModal(props:{isOpen:boolean, onClose:()=>void}) {
   )
 }
 
-export default ProfileModal
+export default NavProfileModal

@@ -4,7 +4,7 @@ import Link from "next/link";
 import React, { useState } from "react";
 import { IoMdLogOut } from "react-icons/io";
 
-function LogoutModal(props:{isOpen:boolean, onClose:()=>void}) {
+function NavLogoutModal(props:{isOpen:boolean, onClose:()=>void}) {
   const [backdrop, setBackdrop] = useState<"opaque" | "blur" | "transparent" | undefined>("blur")
 
   const handleLogOutClick = () => {
@@ -39,4 +39,4 @@ function LogoutModal(props:{isOpen:boolean, onClose:()=>void}) {
   );
 }
 
-export default LogoutModal;
+export default NavLogoutModal;

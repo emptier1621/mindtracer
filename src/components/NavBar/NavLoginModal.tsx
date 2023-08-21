@@ -3,7 +3,7 @@ import Link from "next/link";
 import React from "react";
 import { IoMdPerson } from "react-icons/io";
 
-function LoginModal() {
+function NavLoginModal() {
   const { data: session, status } = useSession();
   return (
     <>
@@ -17,4 +17,4 @@ function LoginModal() {
   );
 }
 
-export default LoginModal;
+export default NavLoginModal;
