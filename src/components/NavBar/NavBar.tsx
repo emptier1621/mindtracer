@@ -38,6 +38,7 @@ export default function NavBar(): ReactElement {
       <Navbar
         isBordered
         isMenuOpen={isMenuOpen}
+        className="fixed"
         onMenuOpenChange={setIsMenuOpen}
       >
         <NavbarContent className="md:hidden" justify="start">
@@ -67,6 +68,7 @@ export default function NavBar(): ReactElement {
       <Navbar
         isBordered
         isMenuOpen={isMenuOpen}
+        className="fixed"
         onMenuOpenChange={setIsMenuOpen}
       >
         <NavbarContent className="md:hidden" justify="start">

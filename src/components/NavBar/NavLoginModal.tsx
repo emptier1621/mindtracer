@@ -58,14 +58,14 @@ function NavLoginModal(props: {
                 </ModalHeader>
                 <ModalBody>
                   <div className="grid md:grid-cols-2">
-                    <div className="md:w-2/6 w-full h-auto flex justify-center items-center">
+                    <div className="md:w-5/6 w-full h-auto flex justify-center items-center">
                       <Avatar
                         src={"background.jpg"}
                         className="w-32 h-32 text-large"
                       />
                     </div>
 
-                    <div className="w-full md:w-4/6 px-4 flex flex-col items-center justify-center">
+                    <div className="w-full md:w-full flex flex-col items-center justify-center">
                       {error ? <Code color="danger">{error}</Code> : ""}
                       <Input
                         autoFocus

@@ -17,6 +17,7 @@ import NavLogoutModal from "./NavLogoutModal";
 import NavProfileModal from "./NavProfileModal";
 import NavRegisterModal from "./NavRegisterModal";
 import NavLoginModal from "./NavLoginModal";
+import { NavThemeSwitch } from "./NavThemeSwitcher";
 
 
 function NavCredentials(props:{router:any}) {
@@ -127,8 +128,9 @@ function NavCredentials(props:{router:any}) {
                 <p className="ml-2">Regístrate</p>
               </Button>
               </DropdownItem>
-              
-            
+              <DropdownItem textValue="Credentials menu" className="h-14 flex-col gap-2 w-max items-center justify-center">      
+              <NavThemeSwitch/>
+              </DropdownItem>
             
           </DropdownMenu>
         </Dropdown>
