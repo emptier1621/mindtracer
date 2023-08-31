@@ -4,15 +4,20 @@ import { connectDB } from '@/libs/mongodb'
 import bcrypt from 'bcryptjs'
 import mongoose from 'mongoose'
 import { getSession } from 'next-auth/react'
+import { getServerSession } from 'next-auth'
 
 export async function POST(request: Request) {
   try {
     await connectDB()
 
-      const { lamina, texto, email } = await request.json()
+      const { lamina, texto } = await request.json()
+      const session = await getServerSession()
+      if(session){
+        const email = session.user.email
+        console.log(email)
 
       if (!lamina || lamina < 1 || lamina > 20) {
-        return NextResponse.json({ message: "La contraseña debe tener al menos 6 caracteres." }, { status: 400 })
+        return NextResponse.json({ message: "Lamina invalida" }, { status: 400 })
       }
 
       const usuario = await User.findOne({ email }).select('+TAT')
@@ -24,8 +29,8 @@ export async function POST(request: Request) {
         );
       }
 
-
-      const laminas = usuario.TAT.map((o: { lamina: Number }) => {
+      const tat = usuario.TAT
+      const laminas = tat.map((o: { lamina: Number }) => {
         return o.lamina
       });
 
@@ -45,7 +50,6 @@ export async function POST(request: Request) {
 
         usuario.TAT.push({ lamina, texto })
         const savedUser = await usuario.save()
-
         return NextResponse.json(
           {
             message: `Lamina ${lamina} guardada: ${savedUser}`
@@ -55,7 +59,7 @@ export async function POST(request: Request) {
           }
         )
       } else {
-        if (laminas.includes(lamina)) {
+        if (laminas.includes(lamina+1)) {
           return NextResponse.json(
             { message: "La lamina ya existe." },
             { status: 400 }
@@ -74,6 +78,7 @@ export async function POST(request: Request) {
           )
         }
       }
+    }
     
 
 
