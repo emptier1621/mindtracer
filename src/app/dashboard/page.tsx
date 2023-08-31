@@ -13,10 +13,24 @@ import {
   Progress,
   Skeleton,
 } from "@nextui-org/react";
+import axios from "axios";
 import { useSession } from "next-auth/react";
+import { useEffect, useState } from "react";
 
 export default function DashboardPage() {
   const { data: session, status } = useSession();
+  const [data, setData] = useState({ tat: [] });
+  useEffect(() => {
+    axios.get('/api/psychology/getTatItems')
+      .then(response => {
+        setData(response.data);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }, []);
+
+  const percent = data.tat.length*100/20
 
   if (status === "unauthenticated") {
     return <div className="text-primary">Sin autorización...</div>;
@@ -48,11 +62,6 @@ export default function DashboardPage() {
   }
 
   if (status === "authenticated") {
-    let percent = 0;
-    if (session && session.user && session.user.TAT) {
-      percent = session.user.TAT.length;
-    }
-
     return (
       <>
         <header className="mt-16 overflow-x-hidden">

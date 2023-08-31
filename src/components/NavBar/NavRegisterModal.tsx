@@ -51,7 +51,7 @@ function NavRegisterModal(props: {
         const edad = fechaActual - new Date(edadValue).getDate();
         age = edad;
       } else {
-        console.log("edad error...");
+        setError("edad error...");
       }
       if (password === repassword) {
         const axiosResponse = await axios.post("/api/auth/signup", {
