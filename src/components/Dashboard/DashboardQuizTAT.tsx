@@ -9,7 +9,10 @@ import TatQuestionCard from "./addTatItem/TatQuestionCard";
 
 function DashboardQuizTAT() {
   return(
-    <TatQuestionCard/>
+    <div>
+<TatQuestionCard/>
+    </div>
+    
   )  
 }
 
