@@ -35,21 +35,33 @@ function NavRegisterModal(props: {
 }) {
   const [selected, setSelected] = useState("Seleccione un género");
   const [error, setError] = useState("");
-
+  let edad = 0
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
-    let age = 0;
-
     try {
       const formData = new FormData(e.currentTarget);
       const password = formData.get("password");
       const repassword = formData.get("repassword");
-      const fechaActual = Date.now();
+      const fechaActual = new Date();
       const edadValue = formData.get("edad")?.toString();
+      
       if (edadValue) {
-        const edad = fechaActual - new Date(edadValue).getDate();
-        age = edad;
+        const edadTemp =  new Date(edadValue);
+        let age = fechaActual.getFullYear() - edadTemp.getFullYear()
+
+        if((fechaActual.getMonth()) > (edadTemp.getMonth())){
+          edad = age
+        }else{
+          if((fechaActual.getMonth()) === (edadTemp.getMonth())){
+            if((fechaActual.getDay()) >= (edadTemp.getDay())){
+              edad=age
+            }else{
+              edad = age - 1
+            }
+          }else{
+            edad = age - 1
+          }
+        }
       } else {
         setError("edad error...");
       }
@@ -60,7 +72,7 @@ function NavRegisterModal(props: {
           grado: formData.get("grado"),
           password: password,
           email: formData.get("email"),
-          edad: age,
+          edad
         });
         setError((await axiosResponse).statusText);
         if (error === "") {

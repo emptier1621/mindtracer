@@ -94,22 +94,23 @@ function TatQuestionCard() {
         break;
         
       case 7: 
-        description = session?.user.genero === 'M'?"Una mujer mayor, baja, está de pie, de espaldas a un hombre joven alto.":"Una mujer joven, sentada en el extremo de un sofá mira hacia atrás por sobre su hombro a un hombre mayor con una pipa en la boca que parece estar dirigiéndose a ella."
-        src = session?.user.genero === 'M'?"/tatLaminas/6a.png":"/tatLaminas/6b.png"
+        description = ""
+        src = session?.user.genero === 'M'?"/tatLaminas/8a.png":"/tatLaminas/8b.png"
         break;
-      case 7: 
-        description = session?.user.genero === 'M'?"Una mujer mayor, baja, está de pie, de espaldas a un hombre joven alto.":"Una mujer joven, sentada en el extremo de un sofá mira hacia atrás por sobre su hombro a un hombre mayor con una pipa en la boca que parece estar dirigiéndose a ella."
-        src = session?.user.genero === 'M'?"/tatLaminas/6a.png":"/tatLaminas/6b.png"
+      case 8: 
+        description = ""
+        src = session?.user.genero === 'M'?"/tatLaminas/9a.png":"/tatLaminas/9b.png"
         break;
-      case 7: 
-        description = session?.user.genero === 'M'?"Una mujer mayor, baja, está de pie, de espaldas a un hombre joven alto.":"Una mujer joven, sentada en el extremo de un sofá mira hacia atrás por sobre su hombro a un hombre mayor con una pipa en la boca que parece estar dirigiéndose a ella."
-        src = session?.user.genero === 'M'?"/tatLaminas/6a.png":"/tatLaminas/6b.png"
+      case 9: 
+        description = ""
+        src = "/tatLaminas/10.png"
         break;
-      case 7: 
-        description = session?.user.genero === 'M'?"Una mujer mayor, baja, está de pie, de espaldas a un hombre joven alto.":"Una mujer joven, sentada en el extremo de un sofá mira hacia atrás por sobre su hombro a un hombre mayor con una pipa en la boca que parece estar dirigiéndose a ella."
-        src = session?.user.genero === 'M'?"/tatLaminas/6a.png":"/tatLaminas/6b.png"
+      case 10: 
+        description = "Un camino bordeando un precipicio entre barrancos altos."
+        src = "/tatLaminas/11.png"
         break;
-      case 7: 
+      case 11:
+        const age = session?.user.edad
         description = session?.user.genero === 'M'?"Una mujer mayor, baja, está de pie, de espaldas a un hombre joven alto.":"Una mujer joven, sentada en el extremo de un sofá mira hacia atrás por sobre su hombro a un hombre mayor con una pipa en la boca que parece estar dirigiéndose a ella."
         src = session?.user.genero === 'M'?"/tatLaminas/6a.png":"/tatLaminas/6b.png"
         break;
