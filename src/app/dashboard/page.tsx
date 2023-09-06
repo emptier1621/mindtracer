@@ -19,19 +19,41 @@ import { useEffect, useState } from "react";
 
 export default function DashboardPage() {
   const { data: session, status } = useSession();
-  const [data, setData] = useState({ tat: [] });
+  const [dataTAT, setDataTAT] = useState({ tat: [] });
+  const [dataIDB, setDataIDB] = useState({ 
+    idb: 0, 
+    clasificacion: 0, 
+    respuestas: [{sintoma: '', intensidad: 0}] 
+  });
+  
   useEffect(() => {
     axios.get('/api/psychology/getTatItems')
       .then(response => {
-        setData(response.data);
+        setDataTAT(response.data);
       })
       .catch(error => {
         console.log(error);
       });
   }, []);
 
-  const percent = data.tat.length*100/20
+  useEffect(() => {
+    axios.get('/api/psychology/getIdbItems')
+      .then(response => {
+        setDataIDB(response.data);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }, []);
 
+
+
+  const tatPercent = dataTAT.tat.length*100/20
+  let idbPercent = 0
+  if(dataIDB.respuestas){
+    idbPercent = dataIDB.respuestas.length*100/20
+  }
+  
   if (status === "unauthenticated") {
     return <div className="text-primary">Sin autorización...</div>;
   }
@@ -73,10 +95,9 @@ export default function DashboardPage() {
                     psicológica que utiliza imágenes para explorar la
                     personalidad y emociones de las personas a través de las
                     historias que crean basadas en esas imágenes."
-                    percent={percent} link="/dashboard/tat"/>
+                    percent={tatPercent} link="/dashboard/tat"/>
             <DashboardTestCard titulo="Inventario de Depresión de Beck" siglas="(IDB-II)" resumen="El Inventario de Depresión de Beck es una herramienta psicológica para medir la depresión, usando preguntas para evaluar síntomas y emociones relacionados con esta condición."
-                    percent={percent} link="/dashboard/idb"/>
-
+                    percent={idbPercent} link="/dashboard/idb"/>
             
           </div>
         </main>

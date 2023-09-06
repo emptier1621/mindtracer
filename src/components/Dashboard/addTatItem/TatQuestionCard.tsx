@@ -2,8 +2,9 @@ import { Button, Card, CardBody, CardHeader, Image, Textarea } from "@nextui-org
 import axios, { AxiosError } from "axios";
 import { useSession } from "next-auth/react";
 import { FormEvent, FormEventHandler, useEffect, useState } from "react";
-import { IoIosSend } from "react-icons/io";
+import { IoIosHappy, IoIosSend } from "react-icons/io";
 import TatQuestionItem from "./TatQuestionItem";
+import Link from "next/link";
 
 function TatQuestionCard() {
   
@@ -110,27 +111,59 @@ function TatQuestionCard() {
         src = "/tatLaminas/11.png"
         break;
       case 11:
-        const age = session?.user.edad
-        description = session?.user.genero === 'M'?"Una mujer mayor, baja, está de pie, de espaldas a un hombre joven alto.":"Una mujer joven, sentada en el extremo de un sofá mira hacia atrás por sobre su hombro a un hombre mayor con una pipa en la boca que parece estar dirigiéndose a ella."
-        src = session?.user.genero === 'M'?"/tatLaminas/6a.png":"/tatLaminas/6b.png"
+        if( session?.user.edad){ 
+          description =  session?.user.edad < 14?"Paisaje.":session.user.genero==="M"?"":"Mujer joven y mujer vieja"
+          src = session?.user.edad < 14?"/tatLaminas/12a.png":session.user.genero==="M"?"/tatLaminas/12b.png":"/tatLaminas/12c.png"
+        }
         break;
-      case 7: 
-        description = session?.user.genero === 'M'?"Una mujer mayor, baja, está de pie, de espaldas a un hombre joven alto.":"Una mujer joven, sentada en el extremo de un sofá mira hacia atrás por sobre su hombro a un hombre mayor con una pipa en la boca que parece estar dirigiéndose a ella."
-        src = session?.user.genero === 'M'?"/tatLaminas/6a.png":"/tatLaminas/6b.png"
+      case 12: 
+        if( session?.user.edad){ 
+          description =  ""
+          src = session?.user.edad > 14?"/tatLaminas/13a.png":session.user.genero==="M"?"/tatLaminas/13b.png":"/tatLaminas/13c.png"
+        }
         break;
-      case 7: 
-        description = session?.user.genero === 'M'?"Una mujer mayor, baja, está de pie, de espaldas a un hombre joven alto.":"Una mujer joven, sentada en el extremo de un sofá mira hacia atrás por sobre su hombro a un hombre mayor con una pipa en la boca que parece estar dirigiéndose a ella."
-        src = session?.user.genero === 'M'?"/tatLaminas/6a.png":"/tatLaminas/6b.png"
+      case 13: 
+        description = "Silueta contra una ventana abierta."
+        src = "/tatLaminas/14.png"
         break;
-      case 7: 
-        description = session?.user.genero === 'M'?"Una mujer mayor, baja, está de pie, de espaldas a un hombre joven alto.":"Una mujer joven, sentada en el extremo de un sofá mira hacia atrás por sobre su hombro a un hombre mayor con una pipa en la boca que parece estar dirigiéndose a ella."
-        src = session?.user.genero === 'M'?"/tatLaminas/6a.png":"/tatLaminas/6b.png"
+      case 14: 
+        description = "Un hombre con sus manos enlazadas está de pie entre lápidas en un cementerio."
+        src = "/tatLaminas/15.png"
+        break;
+      case 15: 
+        description = "Lámina en blanco."
+        src = "/tatLaminas/16.png"
+        break;
+      case 16: 
+        if(session?.user.genero){
+          description = session?.user.genero==="M"?"Un hombre desnudo se trepa por una soga.":"Un puente sobre el agua."
+          src =session?.user.genero==="M"?"/tatLaminas/17a.png":"/tatLaminas/17b.png"
+        }
+        break;
+      case 17: 
+        description = session?.user.genero==="M"?"Un hombre es sujetado desde atrás por tres manos.":"Una mujer aprieta con sus manos el cuello de otra mujer."
+        src = session?.user.genero==="M"?"/tatLaminas/18a.png":"/tatLaminas/18b.png"
+        break;
+      case 18: 
+        description = "Cuadro de formación de nubes sobre una cabaña cubierta de nieve en el campo."
+        src = "/tatLaminas/19.png"
+        break;
+      case 19: 
+        description = "La figura difusamente iluminada de un hombre (o una mujer) en la noche apoyada contra un poste de luz."
+        src = "/tatLaminas/20.png"
         break;
         
       default:
-        description = "Un niño contempla un violín que está sobre una mesa, enfrente de él."
-        src = "/tatLaminas/1.png" 
-        break;
+        return(
+          <div className="w-full md:px-24 my-4 px-4 h-full flex-col justify-center items-center ">
+            <h3 className="text-4xl text-center">¡Felicidades!</h3>
+            <IoIosHappy className="text-5xl w-full flex justify-center items-center my-4"/>
+            <p className="px-4 md:px-24 text-justify ">¡Has completado el Test de Apercepción Temática con éxito! ¡Gracias por tu colaboración! Ahora, para seguir mejorando, te invitamos a realizar la siguiente evaluación. ¡No te la pierdas!</p>
+            <div className="w-full flex items-center justify-center my-8">
+            <Button as={Link} href="/dashboard" variant="ghost" color="warning">Ir al dashboard</Button>
+            </div>
+          </div>  
+        )
     }
 
     return(
