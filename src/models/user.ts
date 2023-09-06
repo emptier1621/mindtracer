@@ -48,26 +48,22 @@ export const usuarioSchema = new Schema({
     select: false
   },
   IDB: {
+    type: {
       puntaje: {
-        type: Number
+        type:Number,
       },
       clasificacion: {
         type:Number
       },
-      respuestas: {
-        type: Array<{
-          sintoma:{
-            type: String,
-            required: true
-          },
-          intensidad:{
-            type:Number,
-            required:true
-          }
-        }>,
-      },
+      respuestas: Array<{
+        sintoma: String,
+        intensidad: Number
+      }>
+    },
+    select: false
   }
-});
+}
+);
 
 const user = models.User || model('User', usuarioSchema);
 

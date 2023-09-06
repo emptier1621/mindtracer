@@ -17,8 +17,8 @@ export async function POST(request: Request) {
       const email = session.user.email
       console.log(email)
 
-      if (!sintoma || sintoma.length < 1 || sintoma.length > 25) {
-        return NextResponse.json({ message: "Pregunta invalida" }, { status: 400 })
+      if (!sintoma || sintoma.length < 1 || sintoma.length > 50) {
+        return NextResponse.json({ message: "max. 50 caracteres." }, { status: 400 })
       }
 
       const usuario = await User.findOne({ email }).select('+IDB')
@@ -31,11 +31,11 @@ export async function POST(request: Request) {
       }
 
       if (!usuario.IDB) {
-        usuario.IDB = { respuestas: [], puntaje: 0, clasificacion: 0 }
+        usuario.IDB = { puntaje: 0, clasificacion: 0, respuestas: [] }
       }
 
       const idb = usuario.IDB
-      const sintomas = idb.respuestas.map((o: { sintoma: string,  }) => {
+      const sintomas = idb.respuestas.map((o: { sintoma: string, intensidad: number }) => {
         return o.sintoma
       });
 
@@ -89,8 +89,7 @@ export async function POST(request: Request) {
     console.log(error)
     if (error instanceof mongoose.Error.ValidationError) {
       return NextResponse.json(
-        { message: error.message },
-        { status: 400 }
+        { message: error.message }, 
       )
     }
     return NextResponse.error();

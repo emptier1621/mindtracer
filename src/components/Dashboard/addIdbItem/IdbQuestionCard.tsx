@@ -37,11 +37,12 @@ function IdbQuestionCard() {
       const formData = new FormData(e.currentTarget);
       const respuesta = formData.get("respuesta")?.toString();
       const sintoma = formData.get("sintoma")?.toString();
+      
       console.log(sintoma, respuesta)
       if (respuesta && respuesta.length > 0) {
         const axiosResponse = await axios.post("/api/psychology/addIdbItem", {
           sintoma,
-          respuesta
+          respuesta:Number(respuesta)
         });
         setQuest(quest+1)
         console.log(axiosResponse)
