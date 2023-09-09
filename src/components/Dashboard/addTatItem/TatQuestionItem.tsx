@@ -25,7 +25,7 @@ function TatQuestionItem(props: {
         <CardHeader className="w-full flex-col justify-center items-center">
           <div className="flex flex-col gap-1 items-center justify-center">
             <h4 className="text-small font-semibold leading-none text-success">
-              Lámina {props.quest}
+              Lámina {props.quest + 1}
             </h4>
             <h3 className="text-small tracking-tight text-foreground">
               {props.description}

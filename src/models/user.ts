@@ -55,10 +55,10 @@ export const usuarioSchema = new Schema({
       clasificacion: {
         type:Number
       },
-      respuestas: Array<{
+      respuestas: [{
         sintoma: String,
         intensidad: Number
-      }>
+      }]
     },
     select: false
   }

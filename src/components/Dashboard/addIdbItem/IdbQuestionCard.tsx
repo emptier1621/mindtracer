@@ -6,68 +6,54 @@ import { FormEvent,useEffect, useState } from "react";
 import idbQuestions from "@/statics/IDB";
 import IdbQuestionItem from "./IdbQuestionItem";
 
-function IdbQuestionCard() {
-  const [error, setError] = useState("");
-  const [data, setData] = useState({ 
-    puntaje: 0, 
-    clasificacion: "", 
-    respuestas: [{sintoma: '', intensidad: 0}] 
-  });
-  const [quest, setQuest] = useState(0);
-  
-  useEffect(() => {
-    if(data.respuestas){
-      axios.get('/api/psychology/getIdbItems')
-      .then(response => {
-        setData(response.data);
-        setQuest(data.respuestas.length)
-      })
-      .catch(error => {
-        console.log(error);
-      });
-    }else{
-      setQuest(0)
-    }
-   
-  }, [data.respuestas]);
-
+function IdbQuestionCard(props:{setQuest:(value:number)=>void,setError:(value:string)=>void, quest:number}) {
   const handleOnSubmit = async (e:FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     try {
       const formData = new FormData(e.currentTarget);
-      const respuesta = formData.get("respuesta")?.toString();
+      let respuesta = Number(formData.get("respuesta"));
       const sintoma = formData.get("sintoma")?.toString();
       
       console.log(sintoma, respuesta)
-      if (respuesta && respuesta.length > 0) {
+      if (respuesta || respuesta===0) {
+        if(respuesta === 11 || respuesta === 22 || respuesta === 33 ){
+          respuesta = respuesta/11
+        }
         const axiosResponse = await axios.post("/api/psychology/addIdbItem", {
           sintoma,
           respuesta:Number(respuesta)
         });
-        setQuest(quest+1)
+        const newQuest = props.quest+1
+        props.setQuest(newQuest)
         console.log(axiosResponse)
       } else {
-        console.log(quest)
-        setError("La historia es requerida.");
-        console.log(quest)
+        console.log(props.quest)
+        props.setError("Pregunta es requerida.");
+        console.log(props.quest)
       }
       
     } catch (error) {
       console.log(error);
       if (error instanceof AxiosError) {
         const errorMessage = error.response?.data.message;
-        setError(errorMessage);
+        props.setError(errorMessage);
       } else {
-        setError(String(error));
+        props.setError(String(error));
       }
     }
   }
 
   const content = idbQuestions.map((item) => {
-    if(quest === item.question){
-      return <IdbQuestionItem question={quest} sintoma={item.sintoma} opciones={item.opciones} key={item.question} fSumbit={handleOnSubmit}/>
+    if(props.quest === item.question){
+      return <IdbQuestionItem question={props.quest} sintoma={item.sintoma} opciones={item.opciones} key={item.question} fSumbit={handleOnSubmit}/>
     }
-  })  
+  }) 
+  
+  if(props.quest===22){
+    return(
+      <div>Gracias</div>  
+    )
+  }
 
   return(
     content

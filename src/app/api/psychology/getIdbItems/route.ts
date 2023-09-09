@@ -4,14 +4,20 @@ import { connectDB } from "@/libs/mongodb"
 import User from "@/models/user"
 import { getSession } from "next-auth/react"
 import { getServerSession } from "next-auth"
-export async function GET(request: Request){
+export async function GET(){
   try {
     await connectDB()
     const session = await getServerSession()
     if(session){
-    const email = session.user.email
+    const email = session?.user.email
     
     const userLoged = await User.findOne({email}).select('+IDB')
+    if(!userLoged.IDB){
+      return NextResponse.json(
+        {idb:{puntaje:0,clasificacion:0,respuestas:[]}},
+        {status:200}
+      )
+    }
       const idb = userLoged.IDB
       return NextResponse.json(
         {idb:idb},
@@ -19,11 +25,6 @@ export async function GET(request: Request){
       )
 
     
-  }else{
-    return NextResponse.json(
-      {message:"error de sesion"},
-      {status: 400}  
-    )
   }
   } catch (error) {
     console.log(error)

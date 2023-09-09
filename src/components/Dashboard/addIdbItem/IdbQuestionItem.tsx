@@ -19,7 +19,7 @@ function TatQuestionItem(props: {
   fSumbit: FormEventHandler<HTMLFormElement>;
 }) {
   return (
-    <div className="w-screen flex h-auto pb-8 justify-center items-center">
+    <div className="p-8">
       <Card
         isBlurred
         className="border-none bg-background/60 dark:bg-default-100/50 md:max-w-[480px] max-w-[300px]"
@@ -40,7 +40,7 @@ function TatQuestionItem(props: {
             <form onSubmit={props.fSumbit} key={props.question}>
            
               <Input key={props.sintoma} className="hidden" value={props.sintoma} name="sintoma"/>
-                <RadioGroup label="Opciones: " name="respuesta">
+                <RadioGroup label="Opciones: " name="respuesta" isRequired>
                   {props.opciones.map((item) => {
                     return(
                       <Radio key={item.opcion} value={item.valor.toString()}>{item.opcion}</Radio>  
@@ -51,7 +51,7 @@ function TatQuestionItem(props: {
                 </RadioGroup>
            
 
-              <div className="flex flex-col col-span-2 md-col-span-2">
+              <div className="flex my-4 flex-col col-span-2 md-col-span-2">
                 <Button type="submit" color="success" variant="ghost">
                   Enviar <IoIosSend className="text-2xl" />
                 </Button>

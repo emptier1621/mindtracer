@@ -155,11 +155,11 @@ const idbQuestions = [
     opciones: [
       {opcion:'No he experimentado ningún cambio en mis hábitos de sueño.', valor:0},
       {opcion:'Duermo un poco más que lo habitual.', valor:1},
-      {opcion:'Duermo un poco menos que lo habitual.', valor:1},
+      {opcion:'Duermo un poco menos que lo habitual.', valor:11},
       {opcion:'Duermo mucho más que lo habitual.', valor:2},
-      {opcion:'Duermo mucho menos que lo habitual.', valor:2},
+      {opcion:'Duermo mucho menos que lo habitual.', valor:22},
       {opcion:'Duermo la mayor parte del día.', valor:3},
-      {opcion:'Me despierto 1-2 horas más temprano y no puedo volver a dormirme.', valor:3},
+      {opcion:'Me despierto 1-2 horas más temprano y no puedo volver a dormirme.', valor:33},
     ],
   },
   {
@@ -173,16 +173,16 @@ const idbQuestions = [
     ],
   },
   {
-    question:8,
+    question:18,
     sintoma: "Cambios en el Apetito.",
     opciones: [
       {opcion:'No he experimentado ningún cambio en mi apetito.', valor:0},
       {opcion:'Mi apetito es un poco menor que lo habitual.', valor:1},
-      {opcion:'Mi apetito es un poco mayor que lo habitual. ', valor:1},
+      {opcion:'Mi apetito es un poco mayor que lo habitual. ', valor:11},
       {opcion:'Mi apetito es mucho menor que antes.', valor:2},
-      {opcion:'Mi apetito es mucho mayor que lo habitual.', valor:2},
+      {opcion:'Mi apetito es mucho mayor que lo habitual.', valor:22},
       {opcion:'No tengo apetito en absoluto.', valor:3},
-      {opcion:'Quiero comer todo el día.', valor:3},
+      {opcion:'Quiero comer todo el día.', valor:33},
     ],
   },
   {

@@ -20,11 +20,11 @@ import { useEffect, useState } from "react";
 export default function DashboardPage() {
   const { data: session, status } = useSession();
   const [dataTAT, setDataTAT] = useState({ tat: [] });
-  const [dataIDB, setDataIDB] = useState({ 
-    idb: 0, 
+  const [dataIDB, setDataIDB] = useState({idb:{ 
+    puntaje: 0, 
     clasificacion: 0, 
     respuestas: [{sintoma: '', intensidad: 0}] 
-  });
+  }});
   
   useEffect(() => {
     axios.get('/api/psychology/getTatItems')
@@ -50,8 +50,11 @@ export default function DashboardPage() {
 
   const tatPercent = dataTAT.tat.length*100/20
   let idbPercent = 0
-  if(dataIDB.respuestas){
-    idbPercent = dataIDB.respuestas.length*100/20
+  if(dataIDB){
+    if(dataIDB.idb.respuestas.length){
+      idbPercent = 0
+    }
+    idbPercent = dataIDB.idb.respuestas.length*100/21
   }
   
   if (status === "unauthenticated") {
