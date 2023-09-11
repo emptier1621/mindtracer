@@ -5,6 +5,7 @@ import { FormEvent, FormEventHandler, useEffect, useState } from "react";
 import { IoIosHappy, IoIosSend } from "react-icons/io";
 import TatQuestionItem from "./TatQuestionItem";
 import Link from "next/link";
+import JSConfetti from "js-confetti";
 
 function TatQuestionCard() {
   
@@ -34,6 +35,7 @@ function TatQuestionCard() {
           lamina:quest+1,
           texto
         });
+        new JSConfetti().addConfetti()
         setQuest(quest+1)
         console.log(axiosResponse)
       } else {

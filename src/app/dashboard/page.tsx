@@ -1,24 +1,19 @@
 "use client";
 import DashboardTestCard from "@/components/Dashboard/DashboardTestCard";
 import NavBar from "@/components/NavBar/NavBar";
-import {
-  Button,
-  Card,
-  CardBody,
-  CardFooter,
-  CardHeader,
-  Divider,
-  Image,
-  Link,
-  Progress,
-  Skeleton,
-} from "@nextui-org/react";
+import NavSkeleton from "@/components/NavBar/NavSkeleton";
+import ContentSkeleton from "@/components/Sekeletons/ContentSkeleton";
+import { Link } from "@nextui-org/react";
 import axios from "axios";
+import fs from 'fs';
 import { useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
+import fastCSV from "fast-csv"
+
 
 export default function DashboardPage() {
   const { data: session, status } = useSession();
+  const [data, setData] = useState()
   const [dataTAT, setDataTAT] = useState({ tat: [] });
   const [dataIDB, setDataIDB] = useState({idb:{ 
     puntaje: 0, 
@@ -34,10 +29,8 @@ export default function DashboardPage() {
       .catch(error => {
         console.log(error);
       });
-  }, []);
 
-  useEffect(() => {
-    axios.get('/api/psychology/getIdbItems')
+      axios.get('/api/psychology/getIdbItems')
       .then(response => {
         setDataIDB(response.data);
       })
@@ -47,50 +40,47 @@ export default function DashboardPage() {
   }, []);
 
 
-
   const tatPercent = dataTAT.tat.length*100/20
   let idbPercent = 0
   if(dataIDB){
-    if(dataIDB.idb.respuestas.length){
+    if(dataIDB.idb.respuestas.length===0){
       idbPercent = 0
-    }
+    }else{
     idbPercent = dataIDB.idb.respuestas.length*100/21
+    }
   }
   
   if (status === "unauthenticated") {
-    return <div className="text-primary">Sin autorización...</div>;
+    return <div className="text-danger">Sin autorización...</div>;
   }
   if (status === "loading") {
-    <>
-      <header>
-        <NavBar />
-      </header>
-      <main>
-        <Card className="w-[200px] space-y-5 p-4" radius="sm">
-          <Skeleton className="rounded-lg">
-            <div className="h-24 rounded-lg bg-default-300"></div>
-          </Skeleton>
-          <div className="space-y-3">
-            <Skeleton className="w-3/5 rounded-lg">
-              <div className="h-3 w-3/5 rounded-lg bg-default-200"></div>
-            </Skeleton>
-            <Skeleton className="w-4/5 rounded-lg">
-              <div className="h-3 w-4/5 rounded-lg bg-default-200"></div>
-            </Skeleton>
-            <Skeleton className="w-2/5 rounded-lg">
-              <div className="h-3 w-2/5 rounded-lg bg-default-300"></div>
-            </Skeleton>
-          </div>
-        </Card>
-      </main>
-    </>;
+    return <>
+    <header>
+      <NavSkeleton/>
+    </header>
+    <main className='w-full h-96 mt-20 flex items-center justify-center'>
+      <ContentSkeleton/>
+    </main>
+  </>
   }
 
   if (status === "authenticated") {
-    return (
+
+    const download = (csvString:string, fileName = 'test.csv') => {
+      // Creamos el elemento para hacer el trigger del download
+      const element = document.createElement('a');
+      element.setAttribute('href', 'data:application/octet-stream,' + encodeURIComponent(csvString));
+      element.setAttribute('download', fileName);
+      element.style.display = 'none';
+      document.body.appendChild(element);
+      element.click();
+      document.body.removeChild(element);  
+  }
+  
+  return (
       <>
         <header className="mt-16 overflow-x-hidden">
-          <NavBar />
+          <NavBar user={session.user} status={"authenticated"} />
         </header>
         <main className="w-screen flex items-center justify-center">
           <div className="md:grid md:grid-cols-2 flex-col w-full place-items-center">

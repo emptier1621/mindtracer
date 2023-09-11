@@ -1,10 +1,12 @@
 "use client"
 import axios, { AxiosError } from "axios";
-import { useSession } from "next-auth/react";
-import { FormEvent,useEffect, useState } from "react";
-
+import { FormEvent } from "react";
+import JSConfetti from 'js-confetti'
 import idbQuestions from "@/statics/IDB";
 import IdbQuestionItem from "./IdbQuestionItem";
+import { Button } from "@nextui-org/react";
+import { IoIosHappy } from "react-icons/io";
+import Link from "next/link";
 
 function IdbQuestionCard(props:{setQuest:(value:number)=>void,setError:(value:string)=>void, quest:number}) {
   const handleOnSubmit = async (e:FormEvent<HTMLFormElement>) => {
@@ -23,9 +25,11 @@ function IdbQuestionCard(props:{setQuest:(value:number)=>void,setError:(value:st
           sintoma,
           respuesta:Number(respuesta)
         });
+        new JSConfetti().addConfetti()
         const newQuest = props.quest+1
         props.setQuest(newQuest)
         console.log(axiosResponse)
+        
       } else {
         console.log(props.quest)
         props.setError("Pregunta es requerida.");
@@ -51,7 +55,14 @@ function IdbQuestionCard(props:{setQuest:(value:number)=>void,setError:(value:st
   
   if(props.quest===22){
     return(
-      <div>Gracias</div>  
+      <div className="w-full md:px-24 my-4 px-4 h-full flex-col justify-center items-center ">
+        <h3 className="text-4xl text-center">¡Felicidades!</h3>
+        <IoIosHappy className="text-5xl w-full flex justify-center items-center my-4"/>
+        <p className="px-4 md:px-24 text-justify ">¡Has completado el Inventario de Depresión de Beck (BDI-II) con éxito! ¡Gracias por tu colaboración! Ahora, para seguir mejorando, te invitamos a participar en la siguiente evaluación. ¡No te la pierdas!</p>
+        <div className="w-full flex items-center justify-center my-8">
+        <Button as={Link} href="/dashboard" variant="ghost" color="warning">Ir al dashboard</Button>
+        </div>
+      </div>  
     )
   }
 

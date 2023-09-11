@@ -40,7 +40,7 @@ function DashboardTestCard(props:{titulo:string,siglas:string,resumen:string, pe
                     value={props.percent}
                     showValueLabel={true}
                   />
-                  <Button as={Link} color="secondary" className='mb-4' href={props.link} variant='ghost'>Continuar</Button>
+                  <Button as={Link} color="secondary" className={`mb-4 ${props.percent >= 100 ? 'hidden' : ''}`} href={props.link} variant='ghost'>Continuar</Button>
                 </CardFooter>
               </Card>
             </div>

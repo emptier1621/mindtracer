@@ -36,9 +36,11 @@ function NavLoginModal(props: {
     if (res?.error) return setError(res.error as string);
 
     if (res?.ok) {
-      if (props.isOpen) props.onClose();
-
       props.router.push("/dashboard/");
+
+      if (props.isOpen){
+        props.onClose();
+      }
     }
   };
   return (

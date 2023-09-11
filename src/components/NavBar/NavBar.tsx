@@ -21,19 +21,12 @@ import { NavThemeSwitch } from "./NavThemeSwitcher";
 import { useRouter } from "next/navigation";
 
 
-export default function NavBar(): ReactElement {
-  const { data: session, status } = useSession();
+export default function NavBar(props:{user:any,status:'authenticated'|'unauthenticated'|'loading'}) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeBtn, setActiveBtn] = useState("Cómo Funciona");
   const router = useRouter()
 
-  console.log(status);
-  if (status === "loading") {
-    return (
-      <NavSkeleton/>
-    );
-  }
-  if (status === "authenticated") {
+  if (props.status === "authenticated") {
     return (
       <Navbar
         isBordered
@@ -57,7 +50,8 @@ export default function NavBar(): ReactElement {
         </NavbarMenu>
       </Navbar>
     );
-  } else {
+  } 
+  if(props.status === 'unauthenticated') {
     const menuItems = ["Cómo Funciona", "Pruebas Psicológicas", "Acerca de"];
    
 

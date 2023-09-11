@@ -5,6 +5,7 @@ import bcrypt from 'bcryptjs'
 import mongoose from 'mongoose'
 import { getSession } from 'next-auth/react'
 import { getServerSession } from 'next-auth'
+import { arrayBuffer } from 'stream/consumers'
 
 export async function POST(request: Request) {
   const { sintoma, respuesta } = await request.json();
@@ -18,6 +19,7 @@ export async function POST(request: Request) {
   if (!user) {
     return NextResponse.json({ message: "No encontro el usuario" }, { status: 400 })
   }
+
   if(!user.IDB){
     try {
       user.IDB = {
@@ -36,6 +38,13 @@ export async function POST(request: Request) {
   }
 
   try {
+
+    if(user.IDB.respuestas.includes({ sintoma: sintoma })){
+      return NextResponse.json({ message: "La respuesta ya existe" }, { status: 400 })
+
+    }
+
+
     user.IDB.respuestas.push({ sintoma: sintoma, intensidad: respuesta });
     user.IDB.puntaje += respuesta;
     user.IDB.clasificacion = user.IDB.puntaje < 13 ? 1 : user.IDB.puntaje < 19 ? 2 : user.IDB.puntaje < 28 ? 3 : 4;
