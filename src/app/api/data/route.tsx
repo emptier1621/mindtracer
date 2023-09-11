@@ -1,17 +1,14 @@
 import { NextResponse } from 'next/server'
 import User from '@/models/user'
 import { connectDB } from '@/libs/mongodb'
-import bcrypt from 'bcryptjs'
 import mongoose from 'mongoose'
-import { getSession } from 'next-auth/react'
 import { getServerSession } from 'next-auth'
-import fastcsv from 'fast-csv';
 import user from '@/models/user'
-import { NextApiResponse } from 'next'
-import fs from "fs"
+import { NextApiRequest, NextApiResponse } from 'next'
+import { createObjectCsvWriter } from 'csv-writer';
 
 
-export async function GET(request: Request, res:NextApiResponse) {
+export async function GET(request: NextApiRequest, response:NextApiResponse) {
   try {
     await connectDB()
       const session = await getServerSession()
@@ -25,11 +22,33 @@ export async function GET(request: Request, res:NextApiResponse) {
         }
       )}
       const data = await user.find({}).select('+TAT +IDB')
+      // Define el encabezado y el mapeo de columnas para el archivo CSV
+      const csvHeader = [
+        { id: 'nombreCompleto', title: 'Nombre Completo' },
+        { id: 'genero', title: 'Genero' },
+        { id: 'grado', title: 'Grado' },
+        { id: 'email', title: 'Email' },
+        { id: 'edad', title: 'Edad' },
+        { id: 'TAT', title: 'TAT' }, 
+        { id: 'IDB', title: 'IDB' }, 
+      ];
 
-      return NextResponse.json(
-        {message: data},
-        {status:200}  
-      )
+
+      const csvWriter = createObjectCsvWriter({
+        path: 'usuarios.json', // Nombre del archivo CSV
+        header: csvHeader,
+      });
+
+      await csvWriter.writeRecords(data);
+
+      return NextResponse.json({
+        status: 200,
+        headers: {
+          'Content-Type': 'text/json',
+          'Content-Disposition': 'attachment; filename="usuarios.json"',
+        },
+        body: data,
+      })
 
   } catch (error) {
     console.log(error)

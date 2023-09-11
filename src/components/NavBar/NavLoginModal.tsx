@@ -76,7 +76,7 @@ function NavLoginModal(props: {
                         }
                         name="email"
                         label="Correo electrónico"
-                        required
+                        isRequired
                         placeholder="Ingrese su correo electrónico"
                         variant="underlined"
                       />
@@ -86,7 +86,7 @@ function NavLoginModal(props: {
                         }
                         label="Contraseña"
                         name="password"
-                        required
+                        isRequired
                         placeholder="Ingrese su cotnraseña"
                         type="password"
                         variant="underlined"

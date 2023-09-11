@@ -8,12 +8,11 @@ import axios from "axios";
 import fs from 'fs';
 import { useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
-import fastCSV from "fast-csv"
 
 
 export default function DashboardPage() {
   const { data: session, status } = useSession();
-  const [data, setData] = useState()
+  const [data, setData] = useState(new Blob())
   const [dataTAT, setDataTAT] = useState({ tat: [] });
   const [dataIDB, setDataIDB] = useState({idb:{ 
     puntaje: 0, 
@@ -38,6 +37,19 @@ export default function DashboardPage() {
         console.log(error);
       });
   }, []);
+  useEffect(() => {
+    if(session && session.user.email === 'admin@mindtracer.com'){
+      axios.get('/api/data', { responseType: 'blob' })
+      .then(response => {
+        console.log(response.data)
+        setData(response.data);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+    }
+  }, [session]);
+
 
 
   const tatPercent = dataTAT.tat.length*100/20
@@ -65,18 +77,15 @@ export default function DashboardPage() {
   }
 
   if (status === "authenticated") {
-
-    const download = (csvString:string, fileName = 'test.csv') => {
-      // Creamos el elemento para hacer el trigger del download
-      const element = document.createElement('a');
-      element.setAttribute('href', 'data:application/octet-stream,' + encodeURIComponent(csvString));
-      element.setAttribute('download', fileName);
-      element.style.display = 'none';
-      document.body.appendChild(element);
-      element.click();
-      document.body.removeChild(element);  
-  }
-  
+    if(session.user.email === 'admin@mindtracer.com' && data){
+      const blob = data
+      const url = window.URL.createObjectURL(blob);
+      return(
+        <div>
+          <Link download={'users.json'} href={url}>gagaagag</Link>
+        </div>  
+      )
+    }
   return (
       <>
         <header className="mt-16 overflow-x-hidden">
