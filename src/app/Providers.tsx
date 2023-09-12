@@ -4,14 +4,13 @@ import {ThemeProvider as NextThemesProvider} from "next-themes";
 import { SessionProvider } from "next-auth/react"
 import React from 'react';
 interface Props {
-  children: React.ReactNode,
-  session: any
+  children: React.ReactNode
 }
 
-export default function Providers({children, session}: Props) {
+export default function Providers({children}: Props) {
   return (
     <React.StrictMode>
-    <SessionProvider session={session}>
+    <SessionProvider >
       <NextUIProvider>
       
       <NextThemesProvider attribute="class" defaultTheme="dark">{children}</NextThemesProvider>

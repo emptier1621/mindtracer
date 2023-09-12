@@ -15,12 +15,11 @@ export default function RootLayout ({
 }: {
   children: React.ReactNode
 }) {
-  const session = getSession()
   return (
     <html lang='es' className='dark'>
       <body className='max-w-screen'>
         <div>
-          <Providers session={session}>{children}</Providers>
+          <Providers>{children}</Providers>
         </div>
       </body>
     </html>
