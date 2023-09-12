@@ -20,7 +20,7 @@ export default function LoginPage () {
 
     if (res?.error) return setError(res.error as string)
 
-    if (res?.ok) return router.push("/dashboard/profile")
+    if (res?.ok) return router.push("/dashboard")
   };
 
   return (

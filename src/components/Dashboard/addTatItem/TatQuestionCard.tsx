@@ -35,6 +35,7 @@ function TatQuestionCard() {
           lamina:quest+1,
           texto
         });
+        
         new JSConfetti().addConfetti()
         setQuest(quest+1)
         console.log(axiosResponse)

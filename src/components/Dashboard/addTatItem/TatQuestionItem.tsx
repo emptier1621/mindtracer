@@ -60,7 +60,7 @@ function TatQuestionItem(props: {
               </div>
 
               <div className="flex flex-col col-span-2 md-col-span-2">
-                <Button type="submit" color="success" variant="ghost">
+                <Button id={`submit${props.quest}`} type="submit" color="success" variant="ghost">
                   Enviar <IoIosSend className="text-2xl" />
                 </Button>
               </div>

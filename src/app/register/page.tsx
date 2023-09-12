@@ -37,7 +37,7 @@ export default function RegisterPage() {
 
           console.log(res)
 
-          if(res?.ok) return router.push("/dashboard/profile")
+          if(res?.ok) return router.push("/dashboard")
         }
       }else{
         const errorMessage = "Las contraseñas no coinciden."
@@ -56,7 +56,6 @@ export default function RegisterPage() {
 
   return (
     <div className="flex flex-col h-screen justify-center items-center text-white">
-      <NavBar></NavBar>
       <h2 className="mt-32 md:mt-24 text-3xl mb-3 transform transition text-pink-600 font-bold cursor-pointer flex items-center font-serif">
         Regístrate <AiOutlineUserAdd></AiOutlineUserAdd>{" "}
       </h2>
