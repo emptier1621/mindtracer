@@ -1,10 +1,10 @@
-import { NextResponse } from 'next/server'
+import { NextRequest, NextResponse } from 'next/server'
 import User from '@/models/user'
 import { connectDB } from '@/libs/mongodb'
 import bcrypt from 'bcryptjs'
 import mongoose from 'mongoose'
 
-export async function POST(request: Request) {
+export async function POST(request: NextRequest, response:NextResponse) {
   try {
     await connectDB()
 

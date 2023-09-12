@@ -1,13 +1,9 @@
-import { NextResponse } from 'next/server'
+import { NextRequest, NextResponse } from 'next/server'
 import User from '@/models/user'
-import { connectDB } from '@/libs/mongodb'
-import bcrypt from 'bcryptjs'
-import mongoose from 'mongoose'
-import { getSession } from 'next-auth/react'
 import { getServerSession } from 'next-auth'
-import { arrayBuffer } from 'stream/consumers'
 
-export async function POST(request: Request) {
+
+export async function POST(request: NextRequest, response:NextResponse) {
   const { sintoma, respuesta } = await request.json();
   const session = await getServerSession()
   const email = session?.user.email
