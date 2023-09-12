@@ -1,17 +1,16 @@
 import { NextRequest, NextResponse } from 'next/server'
 import User from '@/models/user'
 import { connectDB } from '@/libs/mongodb'
-import bcrypt from 'bcryptjs'
 import mongoose from 'mongoose'
-import { getSession } from 'next-auth/react'
 import { getServerSession } from 'next-auth'
+import { authOptions } from '../../auth/[...nextauth]/authOptions'
 
 export async function POST(request: NextRequest, response: NextResponse) {
   try {
     await connectDB()
 
       const { lamina, texto } = await request.json()
-      const session = await getServerSession()
+      const session = await getServerSession(authOptions)
       if(session){
         const email = session.user.email
         console.log(email)

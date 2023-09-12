@@ -1,11 +1,12 @@
 import { NextRequest, NextResponse } from 'next/server'
 import User from '@/models/user'
 import { getServerSession } from 'next-auth'
+import { authOptions } from '../../auth/[...nextauth]/authOptions';
 
 
 export async function POST(request: NextRequest, response:NextResponse) {
   const { sintoma, respuesta } = await request.json();
-  const session = await getServerSession()
+  const session = await getServerSession(authOptions)
   const email = session?.user.email
   if(!email){
     return NextResponse.json({ message: "no loged user... " }, { status: 400 })

@@ -1,15 +1,14 @@
 import { NextRequest, NextResponse } from 'next/server'
-import User from '@/models/user'
 import { connectDB } from '@/libs/mongodb'
 import mongoose from 'mongoose'
 import { getServerSession } from 'next-auth'
 import user from '@/models/user'
-import { createObjectCsvWriter } from 'csv-writer';
+import { authOptions } from '../../auth/[...nextauth]/authOptions'
 
 export async function GET(request: NextRequest, response:NextResponse) {
   try {
     await connectDB()
-      const session = await getServerSession()
+      const session = await getServerSession(authOptions)
       if(!session || session.user.email !== 'admin@mindtracer.com'){
        return NextResponse.json(
         {

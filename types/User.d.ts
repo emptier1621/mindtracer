@@ -11,6 +11,7 @@ export interface Usuario {
   password?: string;
   edad?:number
   TAT:[{lamina:string,texto:string}]
+  IDB:{puntaje:number, clasificacion:number, respuestas:[{sintoma:string,intensidad:number}]}
 }
 
 export type BackdropType = "opaque" | "blur" | "transparent" | undefined

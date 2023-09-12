@@ -11,7 +11,7 @@ interface Props {
 export default function Providers({children, session}: Props) {
   return (
     <React.StrictMode>
-    <SessionProvider session={session}>
+    <SessionProvider>
       <NextUIProvider>
       
       <NextThemesProvider attribute="class" defaultTheme="dark">{children}</NextThemesProvider>
