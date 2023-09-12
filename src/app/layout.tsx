@@ -2,6 +2,7 @@ import Head from 'next/head'
 import './globals.css'
 import Providers from './Providers'
 import { getSession } from 'next-auth/react'
+import { Session } from 'next-auth'
 
 export const metadata = {
   title: 'MindTracer',
@@ -14,7 +15,7 @@ export default function RootLayout ({
   children,session
 }: {
   children: React.ReactNode,
-  session: any
+  session: { session: Session | null } & Record<string, unknown>;
 }) {
   return (
     <html lang='es' className='dark'>
