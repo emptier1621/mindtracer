@@ -1,3 +1,4 @@
+import Head from 'next/head'
 import './globals.css'
 import Providers from './Providers'
 
