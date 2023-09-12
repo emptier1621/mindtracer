@@ -49,10 +49,6 @@ export async function GET(request: NextRequest, response:NextResponse) {
 
       return NextResponse.json({
         status: 200,
-        headers: {
-          'Content-Type': 'text/json',
-          'Content-Disposition': 'attachment; filename="usuarios.json"',
-        },
         body: data,
       })
 
