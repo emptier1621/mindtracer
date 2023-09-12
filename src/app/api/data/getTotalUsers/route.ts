@@ -4,10 +4,6 @@ import { connectDB } from '@/libs/mongodb'
 import mongoose from 'mongoose'
 import { getServerSession } from 'next-auth'
 import user from '@/models/user'
-import { NextApiRequest, NextApiResponse } from 'next'
-import { createObjectCsvWriter } from 'csv-writer';
-
-export const dynamic = 'force-dynamic'
 
 export async function GET(request: NextRequest, response:NextResponse) {
   try {

@@ -7,8 +7,6 @@ export const metadata = {
   description: 'Detectar síntomas de depresión con inteligencia artificial.'
 }
 
-export const dynamic = 'force-dynamic'
-
 export default function RootLayout ({
   children
 }: {
