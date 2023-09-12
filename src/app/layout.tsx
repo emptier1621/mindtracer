@@ -11,15 +11,16 @@ export const metadata = {
 
 
 export default function RootLayout ({
-  children
+  children,session
 }: {
-  children: React.ReactNode
+  children: React.ReactNode,
+  session: any
 }) {
   return (
     <html lang='es' className='dark'>
       <body className='max-w-screen'>
         <div>
-          <Providers>{children}</Providers>
+          <Providers session={session}>{children}</Providers>
         </div>
       </body>
     </html>
