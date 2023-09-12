@@ -1,335 +1,4 @@
 Nombre Completo,Genero,Grado,Email,Edad,TAT,IDB
-Miguel Aliaga,M,4,404aliaga@gmail.com,9,,"{
-  puntaje: 27,
-  clasificacion: 3,
-  respuestas: [
-    {
-      _id: new ObjectId(""64ff848300abcbc44ae2945f""),
-      sintoma: 'Tristeza.',
-      intensidad: 0
-    },
-    {
-      _id: new ObjectId(""64ff848300abcbc44ae29460""),
-      sintoma: 'Pesimismo.',
-      intensidad: 2
-    },
-    {
-      _id: new ObjectId(""64ff848300abcbc44ae29461""),
-      sintoma: 'Fracaso.',
-      intensidad: 3
-    },
-    {
-      _id: new ObjectId(""64ff848300abcbc44ae29462""),
-      sintoma: 'Pérdida de Placer.',
-      intensidad: 3
-    },
-    {
-      _id: new ObjectId(""64ff848300abcbc44ae29463""),
-      sintoma: 'sintomas de Culpa.',
-      intensidad: 1
-    },
-    {
-      _id: new ObjectId(""64ff848300abcbc44ae29464""),
-      sintoma: 'sintomas de Castigo',
-      intensidad: 1
-    },
-    {
-      _id: new ObjectId(""64ff848300abcbc44ae29465""),
-      sintoma: 'Disconformidad con uno mismo.',
-      intensidad: 0
-    },
-    {
-      _id: new ObjectId(""64ff848300abcbc44ae29466""),
-      sintoma: 'Disconformidad con uno mismo.',
-      intensidad: 2
-    },
-    {
-      _id: new ObjectId(""64ff848300abcbc44ae29467""),
-      sintoma: 'Tristeza.',
-      intensidad: 2
-    },
-    {
-      _id: new ObjectId(""64ff848300abcbc44ae29468""),
-      sintoma: 'Pensamientos o Deseos Suicidas.',
-      intensidad: 1
-    },
-    {
-      _id: new ObjectId(""64ff848300abcbc44ae29469""),
-      sintoma: 'Llanto.',
-      intensidad: 1
-    },
-    {
-      _id: new ObjectId(""64ff848300abcbc44ae2946a""),
-      sintoma: 'Agitación.',
-      intensidad: 1
-    },
-    {
-      _id: new ObjectId(""64ff848300abcbc44ae2946b""),
-      sintoma: 'Pérdida de Interés.',
-      intensidad: 0
-    },
-    {
-      _id: new ObjectId(""64ff848300abcbc44ae2946c""),
-      sintoma: 'Indecisión.',
-      intensidad: 0
-    },
-    {
-      _id: new ObjectId(""64ff848300abcbc44ae2946d""),
-      sintoma: 'Desvalorización.',
-      intensidad: 2
-    },
-    {
-      _id: new ObjectId(""64ff848300abcbc44ae2946e""),
-      sintoma: 'Pérdida de Energía.',
-      intensidad: 3
-    },
-    {
-      _id: new ObjectId(""64ff848300abcbc44ae2946f""),
-      sintoma: 'Cambios en los Hábitos de Sueño.',
-      intensidad: 3
-    },
-    {
-      _id: new ObjectId(""64ff848300abcbc44ae29470""),
-      sintoma: 'Irritabilidad.',
-      intensidad: 2
-    }
-  ],
-  _id: new ObjectId(""64fbaa800b6e254cd0d04c68"")
-}"
-Miguel Fernando Aliaga Chacon,M,4,new@gmail.com,6,,"{
-  puntaje: 38,
-  clasificacion: 4,
-  respuestas: [
-    {
-      sintoma: 'Tristeza.',
-      intensidad: 2,
-      _id: new ObjectId(""64fbe5f0d570ddd8ff395136"")
-    },
-    {
-      sintoma: 'Pesimismo.',
-      intensidad: 2,
-      _id: new ObjectId(""64fbe5f3d570ddd8ff39513a"")
-    },
-    {
-      sintoma: 'Fracaso.',
-      intensidad: 0,
-      _id: new ObjectId(""64fbe5f5d570ddd8ff39513f"")
-    },
-    {
-      sintoma: 'Pérdida de Placer.',
-      intensidad: 3,
-      _id: new ObjectId(""64fbe5ffd570ddd8ff395145"")
-    },
-    {
-      sintoma: 'sintomas de Culpa.',
-      intensidad: 1,
-      _id: new ObjectId(""64fbe601d570ddd8ff39514c"")
-    },
-    {
-      sintoma: 'sintomas de Castigo',
-      intensidad: 3,
-      _id: new ObjectId(""64fbe604d570ddd8ff395154"")
-    },
-    {
-      sintoma: 'Disconformidad con uno mismo.',
-      intensidad: 1,
-      _id: new ObjectId(""64fbe605d570ddd8ff39515d"")
-    },
-    {
-      sintoma: 'Autocrítica',
-      intensidad: 0,
-      _id: new ObjectId(""64fbe607d570ddd8ff395167"")
-    },
-    {
-      sintoma: 'Pensamientos o Deseos Suicidas.',
-      intensidad: 1,
-      _id: new ObjectId(""64fbe608d570ddd8ff395172"")
-    },
-    {
-      sintoma: 'Llanto.',
-      intensidad: 2,
-      _id: new ObjectId(""64fbe60ad570ddd8ff39517e"")
-    },
-    {
-      sintoma: 'Agitación.',
-      intensidad: 3,
-      _id: new ObjectId(""64fbe60bd570ddd8ff39518b"")
-    },
-    {
-      sintoma: 'Pérdida de Interés.',
-      intensidad: 1,
-      _id: new ObjectId(""64fbe60ed570ddd8ff395199"")
-    },
-    {
-      sintoma: 'Indecisión.',
-      intensidad: 2,
-      _id: new ObjectId(""64fbe60fd570ddd8ff3951a8"")
-    },
-    {
-      sintoma: 'Desvalorización.',
-      intensidad: 2,
-      _id: new ObjectId(""64fbe612d570ddd8ff3951b8"")
-    },
-    {
-      sintoma: 'Pérdida de Energía.',
-      intensidad: 1,
-      _id: new ObjectId(""64fbe614d570ddd8ff3951c9"")
-    },
-    {
-      sintoma: 'Pérdida de Energía.',
-      intensidad: 3,
-      _id: new ObjectId(""64fbe764d570ddd8ff39520b"")
-    },
-    {
-      sintoma: 'Cambios en los Hábitos de Sueño.',
-      intensidad: 1,
-      _id: new ObjectId(""64fbe76ad570ddd8ff39521e"")
-    },
-    {
-      sintoma: 'Irritabilidad.',
-      intensidad: 1,
-      _id: new ObjectId(""64fbe76cd570ddd8ff395232"")
-    },
-    {
-      sintoma: 'Cambios en el Apetito.',
-      intensidad: 2,
-      _id: new ObjectId(""64fbe76dd570ddd8ff395247"")
-    },
-    {
-      sintoma: 'Dificultad de Concentración.',
-      intensidad: 3,
-      _id: new ObjectId(""64fbe773d570ddd8ff39525d"")
-    },
-    {
-      sintoma: 'Cansancio o Fatiga.',
-      intensidad: 2,
-      _id: new ObjectId(""64fbe7c3d570ddd8ff3952b3"")
-    },
-    {
-      sintoma: 'Pérdida de Interés en el Sexo.',
-      intensidad: 2,
-      _id: new ObjectId(""64fbe7c8d570ddd8ff3952cb"")
-    }
-  ],
-  _id: new ObjectId(""64fbe5f0d570ddd8ff395135"")
-}"
-Miguel Fernando Aliaga Chacon,M,3,123@gmail.com,24,"[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]","{
-  puntaje: 21,
-  clasificacion: 3,
-  respuestas: [
-    {
-      sintoma: 'Tristeza.',
-      intensidad: 3,
-      _id: new ObjectId(""64fbe8e0d570ddd8ff395392"")
-    },
-    {
-      sintoma: 'Pesimismo.',
-      intensidad: 2,
-      _id: new ObjectId(""64fbe8e2d570ddd8ff395396"")
-    },
-    {
-      sintoma: 'Fracaso.',
-      intensidad: 1,
-      _id: new ObjectId(""64fbe8e4d570ddd8ff39539b"")
-    },
-    {
-      sintoma: 'Pérdida de Placer.',
-      intensidad: 2,
-      _id: new ObjectId(""64fbe8e5d570ddd8ff3953a1"")
-    },
-    {
-      sintoma: 'sintomas de Culpa.',
-      intensidad: 1,
-      _id: new ObjectId(""64fbe8e7d570ddd8ff3953a8"")
-    },
-    {
-      sintoma: 'sintomas de Castigo',
-      intensidad: 1,
-      _id: new ObjectId(""64fbe8f3d570ddd8ff3953b0"")
-    },
-    {
-      sintoma: 'sintomas de Castigo',
-      intensidad: 0,
-      _id: new ObjectId(""64fbe926d570ddd8ff3953ce"")
-    },
-    {
-      sintoma: 'Disconformidad con uno mismo.',
-      intensidad: 0,
-      _id: new ObjectId(""64fbe928d570ddd8ff3953d8"")
-    },
-    {
-      sintoma: 'Autocrítica',
-      intensidad: 1,
-      _id: new ObjectId(""64fbe92ad570ddd8ff3953e3"")
-    },
-    {
-      sintoma: 'Pensamientos o Deseos Suicidas.',
-      intensidad: 0,
-      _id: new ObjectId(""64fbe92bd570ddd8ff3953ef"")
-    },
-    {
-      sintoma: 'Llanto.',
-      intensidad: 0,
-      _id: new ObjectId(""64fbe92dd570ddd8ff3953fc"")
-    },
-    {
-      sintoma: 'Agitación.',
-      intensidad: 0,
-      _id: new ObjectId(""64fbe92fd570ddd8ff39540a"")
-    },
-    {
-      sintoma: 'Pérdida de Interés.',
-      intensidad: 3,
-      _id: new ObjectId(""64fbe930d570ddd8ff395419"")
-    },
-    {
-      sintoma: 'Indecisión.',
-      intensidad: 2,
-      _id: new ObjectId(""64fbe931d570ddd8ff395429"")
-    },
-    {
-      sintoma: 'Desvalorización.',
-      intensidad: 1,
-      _id: new ObjectId(""64fbe933d570ddd8ff39543a"")
-    },
-    {
-      sintoma: 'Pérdida de Energía.',
-      intensidad: 0,
-      _id: new ObjectId(""64fbe933d570ddd8ff39544c"")
-    },
-    {
-      sintoma: 'Cambios en los Hábitos de Sueño.',
-      intensidad: 1,
-      _id: new ObjectId(""64fbe935d570ddd8ff39545f"")
-    },
-    {
-      sintoma: 'Irritabilidad.',
-      intensidad: 1,
-      _id: new ObjectId(""64fbe937d570ddd8ff395473"")
-    },
-    {
-      sintoma: 'Cambios en el Apetito.',
-      intensidad: 1,
-      _id: new ObjectId(""64fbe939d570ddd8ff395488"")
-    },
-    {
-      sintoma: 'Dificultad de Concentración.',
-      intensidad: 1,
-      _id: new ObjectId(""64fbe93ad570ddd8ff39549e"")
-    },
-    {
-      sintoma: 'Cansancio o Fatiga.',
-      intensidad: 0,
-      _id: new ObjectId(""64fbe93cd570ddd8ff3954b5"")
-    },
-    {
-      sintoma: 'Pérdida de Interés en el Sexo.',
-      intensidad: 0,
-      _id: new ObjectId(""64fbe93fd570ddd8ff3954cd"")
-    }
-  ],
-  _id: new ObjectId(""64fbe8e0d570ddd8ff395391"")
-}"
 NEWUSER ,M,3,aliagaf404@gmail.com,24,"[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]","{
   puntaje: 30,
   clasificacion: 4,
@@ -554,45 +223,115 @@ NEWUSER ,M,1,aliagaf@gmail.com,911,"[object Object],[object Object],[object Obje
   ],
   _id: new ObjectId(""64fe4253de30ea58b5bbcf25"")
 }"
-NEWUSER ,M,2,new12@gmail.com,6,[object Object],"{
-  puntaje: 7,
-  clasificacion: 1,
+Miguel Aliaga,M,2,ne123w@gmail.com,12,"[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]","{
+  puntaje: 63,
+  clasificacion: 4,
   respuestas: [
     {
       sintoma: 'Tristeza.',
-      intensidad: 1,
-      _id: new ObjectId(""64fe482625feb6b2d9ecf0aa"")
+      intensidad: 3,
+      _id: new ObjectId(""64ff85627bae93d40467fe2c"")
     },
     {
       sintoma: 'Pesimismo.',
       intensidad: 3,
-      _id: new ObjectId(""64fe482a25feb6b2d9ecf0ae"")
+      _id: new ObjectId(""64ff85637bae93d40467fe30"")
     },
     {
       sintoma: 'Fracaso.',
-      intensidad: 0,
-      _id: new ObjectId(""64fe482d25feb6b2d9ecf0b3"")
+      intensidad: 3,
+      _id: new ObjectId(""64ff85657bae93d40467fe35"")
     },
     {
       sintoma: 'Pérdida de Placer.',
-      intensidad: 1,
-      _id: new ObjectId(""64fe483025feb6b2d9ecf0b9"")
+      intensidad: 3,
+      _id: new ObjectId(""64ff85677bae93d40467fe3b"")
     },
     {
       sintoma: 'sintomas de Culpa.',
-      intensidad: 1,
-      _id: new ObjectId(""64fe483525feb6b2d9ecf0c0"")
+      intensidad: 3,
+      _id: new ObjectId(""64ff85687bae93d40467fe42"")
     },
     {
       sintoma: 'sintomas de Castigo',
-      intensidad: 1,
-      _id: new ObjectId(""64fe488525feb6b2d9ecf0fa"")
+      intensidad: 3,
+      _id: new ObjectId(""64ff856a7bae93d40467fe4a"")
+    },
+    {
+      sintoma: 'Disconformidad con uno mismo.',
+      intensidad: 3,
+      _id: new ObjectId(""64ff856d7bae93d40467fe53"")
+    },
+    {
+      sintoma: 'Autocrítica',
+      intensidad: 3,
+      _id: new ObjectId(""64ff856f7bae93d40467fe5d"")
+    },
+    {
+      sintoma: 'Pensamientos o Deseos Suicidas.',
+      intensidad: 3,
+      _id: new ObjectId(""64ff85717bae93d40467fe68"")
+    },
+    {
+      sintoma: 'Llanto.',
+      intensidad: 3,
+      _id: new ObjectId(""64ff85737bae93d40467fe74"")
+    },
+    {
+      sintoma: 'Agitación.',
+      intensidad: 3,
+      _id: new ObjectId(""64ff85747bae93d40467fe81"")
+    },
+    {
+      sintoma: 'Pérdida de Interés.',
+      intensidad: 3,
+      _id: new ObjectId(""64ff85767bae93d40467fe8f"")
+    },
+    {
+      sintoma: 'Indecisión.',
+      intensidad: 3,
+      _id: new ObjectId(""64ff85777bae93d40467fe9e"")
+    },
+    {
+      sintoma: 'Desvalorización.',
+      intensidad: 3,
+      _id: new ObjectId(""64ff85787bae93d40467feae"")
+    },
+    {
+      sintoma: 'Pérdida de Energía.',
+      intensidad: 3,
+      _id: new ObjectId(""64ff85797bae93d40467febf"")
+    },
+    {
+      sintoma: 'Cambios en los Hábitos de Sueño.',
+      intensidad: 3,
+      _id: new ObjectId(""64ff857b7bae93d40467fed1"")
+    },
+    {
+      sintoma: 'Irritabilidad.',
+      intensidad: 3,
+      _id: new ObjectId(""64ff857d7bae93d40467fee4"")
+    },
+    {
+      sintoma: 'Cambios en el Apetito.',
+      intensidad: 3,
+      _id: new ObjectId(""64ff857f7bae93d40467fef8"")
+    },
+    {
+      sintoma: 'Dificultad de Concentración.',
+      intensidad: 3,
+      _id: new ObjectId(""64ff85817bae93d40467ff0d"")
+    },
+    {
+      sintoma: 'Cansancio o Fatiga.',
+      intensidad: 3,
+      _id: new ObjectId(""64ff85827bae93d40467ff23"")
+    },
+    {
+      sintoma: 'Pérdida de Interés en el Sexo.',
+      intensidad: 3,
+      _id: new ObjectId(""64ff85837bae93d40467ff3a"")
     }
   ],
-  _id: new ObjectId(""64fe482625feb6b2d9ecf0a9"")
+  _id: new ObjectId(""64ff85627bae93d40467fe2b"")
 }"
-adqwer,M,5,admin@mindtracer.com,911,,
-Miguel Aliaga,M,1,qweqweq@aweq.com,0,,
-Miguel Aliaga,M,1,123123@gmail.com,0,,
-Miguel Aliaga,M,1,admin123@mindtracer.com,8,,
-Miguel Aliaga,M,2,ne123w@gmail.com,12,,

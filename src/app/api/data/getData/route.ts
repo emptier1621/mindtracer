@@ -21,33 +21,17 @@ export async function GET(request: NextApiRequest, response:NextApiResponse) {
           status: 400,
         }
       )}
-      const data = await user.find({}).select('+TAT +IDB')
-      // Define el encabezado y el mapeo de columnas para el archivo CSV
-      const csvHeader = [
-        { id: 'nombreCompleto', title: 'Nombre Completo' },
-        { id: 'genero', title: 'Genero' },
-        { id: 'grado', title: 'Grado' },
-        { id: 'email', title: 'Email' },
-        { id: 'edad', title: 'Edad' },
-        { id: 'TAT', title: 'TAT' }, 
-        { id: 'IDB', title: 'IDB' }, 
-      ];
-
-
-      const csvWriter = createObjectCsvWriter({
-        path: 'usuarios.json', // Nombre del archivo CSV
-        header: csvHeader,
-      });
-
-      await csvWriter.writeRecords(data);
-
+      const data = await user
+  .find({
+    $and: [
+      { "TAT": { $size: 20 } }, // Verifica que el campo 'TAT' tenga un tamaño de 20
+      { "IDB.respuestas": { $size: 21 } } // Verifica que el campo 'IDB.respuestas' tenga un tamaño de 21
+    ]
+  })
+  .select('+TAT +IDB');
       return NextResponse.json({
         status: 200,
-        headers: {
-          'Content-Type': 'text/json',
-          'Content-Disposition': 'attachment; filename="usuarios.json"',
-        },
-        body: data,
+        message: {data}
       })
 
   } catch (error) {
