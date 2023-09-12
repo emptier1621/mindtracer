@@ -4,8 +4,10 @@ import Providers from './Providers'
 
 export const metadata = {
   title: 'MindTracer',
-  description: 'Detectar síntomas de depresión con inteligencia artificial'
+  description: 'Detectar síntomas de depresión con inteligencia artificial.'
 }
+
+export const dynamic = 'force-dynamic'
 
 export default function RootLayout ({
   children
