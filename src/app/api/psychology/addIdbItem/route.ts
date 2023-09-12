@@ -7,7 +7,7 @@ export const dynamic = 'force-dynamic'
 
 export async function POST(request: NextRequest, response:NextResponse) {
   const { sintoma, respuesta } = await request.json();
-  const session = await getServerSession(authOptions)
+  const session = await getServerSession({ req: request, res: response, ...authOptions })
   const email = session?.user.email
   if(!email){
     return NextResponse.json({ message: "no loged user... " }, { status: 400 })

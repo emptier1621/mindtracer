@@ -12,7 +12,7 @@ export async function POST(request: NextRequest, response: NextResponse) {
     await connectDB()
 
       const { lamina, texto } = await request.json()
-      const session = await getServerSession(authOptions)
+      const session = await getServerSession({ req: request, res: response, ...authOptions })
       if(session){
         const email = session.user.email
         console.log(email)

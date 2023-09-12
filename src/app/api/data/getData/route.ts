@@ -7,10 +7,10 @@ import { authOptions } from '../../auth/[...nextauth]/authOptions'
 
 export const dynamic = 'force-dynamic'
 
-export async function GET(request: NextRequest, response:NextResponse) {
+export async function GET(request: Request, response:Response) {
   try {
     await connectDB()
-      const session = await getServerSession(authOptions)
+      const session = await getServerSession({ req: request, res: response, ...authOptions })
       if(!session || session.user.email !== 'admin@mindtracer.com'){
        return NextResponse.json(
         {
