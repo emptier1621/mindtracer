@@ -3,6 +3,9 @@ import mongoose from "mongoose"
 import { connectDB } from "@/libs/mongodb"
 import User from "@/models/user"
 import { getServerSession } from "next-auth"
+
+export const dynamic = 'force-dynamic'
+
 export async function GET(request:NextRequest, response:NextResponse){
   try {
     await connectDB()
