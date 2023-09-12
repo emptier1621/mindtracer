@@ -28,25 +28,7 @@ export async function GET(request: NextRequest, response:NextResponse) {
     ]
   })
   .select('+TAT +IDB');
-      // Define el encabezado y el mapeo de columnas para el archivo CSV
-      const csvHeader = [
-        { id: 'nombreCompleto', title: 'Nombre Completo' },
-        { id: 'genero', title: 'Genero' },
-        { id: 'grado', title: 'Grado' },
-        { id: 'email', title: 'Email' },
-        { id: 'edad', title: 'Edad' },
-        { id: 'TAT', title: 'TAT' }, 
-        { id: 'IDB', title: 'IDB' }, 
-      ];
-
-
-      const csvWriter = createObjectCsvWriter({
-        path: 'usuarios.json', // Nombre del archivo CSV
-        header: csvHeader,
-      });
-
-      await csvWriter.writeRecords(data);
-
+      
       return NextResponse.json({
         status: 200,
         body: data,
