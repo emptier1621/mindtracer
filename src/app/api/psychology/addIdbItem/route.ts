@@ -3,6 +3,7 @@ import User from '@/models/user'
 import { getServerSession } from 'next-auth'
 import { authOptions } from '../../auth/[...nextauth]/authOptions';
 
+export const dynamic = 'force-dynamic'
 
 export async function POST(request: NextRequest, response:NextResponse) {
   const { sintoma, respuesta } = await request.json();
