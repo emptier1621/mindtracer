@@ -1,4 +1,4 @@
-import { NextResponse } from 'next/server'
+import { NextRequest, NextResponse } from 'next/server'
 import User from '@/models/user'
 import { connectDB } from '@/libs/mongodb'
 import mongoose from 'mongoose'
@@ -8,7 +8,7 @@ import { NextApiRequest, NextApiResponse } from 'next'
 import { createObjectCsvWriter } from 'csv-writer';
 
 
-export async function GET(request: NextApiRequest, response:NextApiResponse) {
+export async function GET(request: NextRequest, response:NextResponse) {
   try {
     await connectDB()
       const session = await getServerSession()
