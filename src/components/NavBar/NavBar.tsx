@@ -25,7 +25,10 @@ export default function NavBar(props:{user:any,status:'authenticated'|'unauthent
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeBtn, setActiveBtn] = useState("Cómo Funciona");
   const router = useRouter()
-
+  const menuItems = ["Cómo Funciona", "Pruebas Psicológicas", "Acerca de"];
+  const handleActiveSection = (item: string) => {
+    setActiveBtn(item);
+  };
   if (props.status === "authenticated") {
     return (
       <Navbar
@@ -44,9 +47,25 @@ export default function NavBar(props:{user:any,status:'authenticated'|'unauthent
         <NavCredentials router={router} />
         <NavbarMenu className="overflow-y-hidden">
           <NavMenu />
-          <NavbarMenuItem className="w-full flex items-center justify-center">
-            <NavThemeSwitch />
-          </NavbarMenuItem>
+          <NavbarContent className=" flex-col md:flex gap-4 w-full items-center justify-center" justify="center">
+    {menuItems.map((item,index) => {
+      const active: boolean = item === activeBtn ? true : false;
+      const path = item.replace(" ","")
+      return (
+        <NavbarItem key={`${item}-${index}`} isActive={active}>
+          <Link
+            className={`hover:scale-95 transition-shadow ${active?"text-success":""}`}
+            color={active ? "success" : "foreground"}
+            onClick={() => handleActiveSection(item)}
+            href={`/#${path}`}
+          >
+            {item}
+          </Link>
+        </NavbarItem>
+      );
+    })} 
+    <NavThemeSwitch />
+  </NavbarContent>
         </NavbarMenu>
       </Navbar>
     );

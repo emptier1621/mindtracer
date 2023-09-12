@@ -97,7 +97,7 @@ export default function HomeCmp() {
 
           {/* etapas */}
 
-          <div className="pt-4 flex h-96 w-full flex-wrap gap-6 justify-center items-center">
+          <div className="pt-4 flex h-full w-full flex-wrap gap-6 justify-center items-center">
           <p className='px-4 text-foreground text-center w-full'>{p1}</p>
           <p className='px-4 text-foreground text-center w-full'>{p2}</p>
 
@@ -217,16 +217,16 @@ export default function HomeCmp() {
 
           {/* etapas */}
 
-          <div className="pt-4 grid place-items-center mb-4 md:flex h-full w-full md:flex-wrap gap-6 justify-center items-center">
-          <p className='px-16 text-foreground text-center w-full'>En el corazón de nuestra plataforma, encontrarás una dedicación inquebrantable a la salud mental y al bienestar emocional. Somos un equipo apasionado y comprometido que busca marcar la diferencia en la vida de las personas. Permítenos presentarnos:</p>
+          <div className="pt-4 px-4 grid place-items-center mb-4 md:flex h-full w-full md:flex-wrap gap-6 justify-center items-center">
+          <p className='text-foreground text-center w-full'>En el corazón de nuestra plataforma, encontrarás una dedicación inquebrantable a la salud mental y al bienestar emocional. Somos un equipo apasionado y comprometido que busca marcar la diferencia en la vida de las personas. Permítenos presentarnos:</p>
 
-            <div className='grid px-8 py-4 place-items-center gap-4'>
+            <div className='grid place-items-center gap-4 px-6'>
             {acercaDeSections.map((item, index) => {
               
               return (
-                <Card key={item.titulo} className='my-6 w-2/3'>
+                <Card key={item.titulo}>
                     
-                    <CardHeader className="flex w-full p-2 items-center justify-center text-warning">
+                    <CardHeader className="flex w-full items-center justify-center text-warning">
                       <div className='h-full w-full flex justify-center items-center'>
                         <p className='text-base'> 
                           {
@@ -237,9 +237,10 @@ export default function HomeCmp() {
                     
                     </CardHeader>
                     <Divider/>
-                    <CardBody> <div className="px-4 py-2">
+                    <CardBody> <div>
                       <div className="text-base text-center">{item.descripcion}</div>
                     </div></CardBody>
+                    <Divider/>
                     <CardFooter className='flex w-full items-center justify-center text-warning'>
                       <IoIosStar />
                       <IoIosStar />
