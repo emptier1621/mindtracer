@@ -1,33 +1,30 @@
-import { Popover, PopoverTrigger, Button, PopoverContent, Accordion, AccordionItem, Card, CardBody, CardHeader, Divider, CardFooter } from '@nextui-org/react'
+import { Popover, PopoverTrigger, Button, PopoverContent, Accordion, AccordionItem, Card, CardBody, CardHeader, Divider, CardFooter, Avatar, AvatarIcon } from '@nextui-org/react'
+import Link from 'next/link'
 import React from 'react'
-import { IoIosAddCircle, IoIosBook, IoIosDocument, IoMdCheckmark, IoIosLock, IoMdHeart, IoIosStar } from 'react-icons/io'
+import { IoIosAddCircle, IoIosBook, IoIosDocument, IoMdCheckmark, IoIosLock, IoMdHeart, IoIosStar, IoIosHappy, IoMdPlanet, IoIosInformationCircleOutline, IoLogoGithub } from 'react-icons/io'
 
 export default function HomeCmp() {
 
   const comoFuncionaSections = [
     {
     "titulo":"Regístrate en la Plataforma",
-    "contenido":"Comienza creando una cuenta en nuestra plataforma. Tu privacidad es nuestra prioridad, y tus datos personales se manejarán con total confidencialidad y seguridad. Tu registro es el primer paso para un futuro más brillante en salud mental. Puede hacerlo desde el botón de REGÍSTRATE en el menu de usuario."
-    },
-    {
-    "titulo":"Pruebas Psicológicas",
-    "contenido":"Una vez registrado, podrás acceder a las pruebas psicológicas TAT (Test de Apercepción Temática) e IDB-II (Inventario de Depresión de Beck - Segunda Edición). Estas pruebas han sido diseñadas por profesionales de la psicología y son ampliamente utilizadas en la evaluación de la depresión."
+    "contenido":"Comienza creando una cuenta en nuestra plataforma. Tu registro es el primer paso para un futuro más brillante en salud mental. Puede hacerlo desde el botón de REGÍSTRATE haciendo click el menú de INVITADO."
     },
     {
     "titulo":"Realiza las Pruebas Psicológicas",
-    "contenido":"Una vez registrado, podrás acceder a nuestras Pruebas TAT (Test de Apercepción Temática) e IDB-II (Inventario de Depresión de Beck - Segunda Edición). Estas pruebas son la base de nuestro proyecto y tu contribución es esencial. Responde con sinceridad a las preguntas, y estarás ayudando a entrenar a nuestra IA."
+    "contenido":"Una vez registrado, podrás acceder a nuestras Pruebas TAT (Test de Apercepción Temática) e IDB-II (Inventario de Depresión de Beck - Segunda Edición). Tu contribución es esencial."
     },
     {
     "titulo":"Tus Respuestas Son Claves",
-    "contenido":"Cada respuesta que proporcionas es valiosa. Tus pensamientos, sentimientos y experiencias alimentarán el desarrollo de nuestra IA. Las Pruebas TAT exploran tu creatividad, mientras que el IDB-II evalúa la depresión. Tu participación es el ladrillo fundamental para construir un sistema más inteligente en salud mental."
+    "contenido":"Cada respuesta que proporcionas es valiosa. Tus pensamientos, sentimientos y experiencias alimentarán el desarrollo de nuestra IA. Tu participación es el ladrillo fundamental para construir un sistema más inteligente en salud mental."
     },
     {
     "titulo":"Privacidad y Seguridad",
-    "contenido":"Puedes estar seguro de que tus datos están protegidos. Nuestra plataforma cumple con rigurosas medidas de privacidad y seguridad. Tu bienestar emocional es nuestra prioridad en cada paso del camino."
+    "contenido":"Puedes estar seguro de que tus datos están protegidos. Nuestra plataforma cumple con las medidas de privacidad y seguridad respectivas. Tu bienestar emocional es nuestra prioridad en cada paso del camino."
     },
     {
     "titulo":"El Futuro de la Salud Mental",
-    "contenido":"Tus respuestas se utilizarán para entrenar a nuestra IA en futuros despliegues. Imagina un mundo donde la detección temprana de la depresión sea más efectiva, donde las personas reciban el apoyo que necesitan cuando más lo necesitan. Tu contribución hace que este futuro sea posible."
+    "contenido":"Imagina un mundo donde la detección temprana de la depresión sea más efectiva, donde las personas reciban el apoyo que necesitan cuando más lo necesitan. Tu contribución hace que este futuro sea posible."
     },
   ]
 
@@ -77,67 +74,50 @@ export default function HomeCmp() {
   ]
 
 
-  const titulo = '¿Cómo Funciona?'
-  const p1 = 'Te invitamos a unirte a nosotros en este viaje hacia un mundo donde la salud mental sea tratada con la misma importancia que cualquier otro aspecto de la salud. Juntos, podemos lograr un cambio significativo y positivo en la forma en que abordamos la salud emocional.'
-  const p2 = '¡Bienvenido a nuestra comunidad dedicada a un futuro más saludable y emocionalmente equilibrado!'
+  const titulo = 'MindTracer'
+  const p1 = 'MindTracer te brinda una ventana única a tu bienestar emocional utilizando inteligencia artificial y dos herramientas clave: el Test de Apercepción Temática y el Inventario de la Depresión de Beck, para una evaluación precisa de tu salud mental.'
   const seccion1titulo = 'Pruebas Psicológicas'
-  const seccion1Descripcion = 'En este emocionante primer lanzamiento de nuestra aplicación, tienes la oportunidad de ser parte fundamental de un avance en salud mental.'
+  const seccion1Descripcion = 'Estamos actualmente en la fase de recolección de datos, trabajando con dedicación para enriquecer nuestro conjunto de información. Esto permitirá a MindTracer detectar de manera sutil signos de la depresión en tu comportamiento y respuestas emocionales. '
 
 
 
   return (
     <>
-      <section id='CómoFunciona' className='w-full pt-16 flex-col h-full md:pb-0 pb-20 overflow-hidden items-center justify-center overflow-x-hidden'>
+      <section id='CómoFunciona' className='w-full pt-16 flex-col h-full md:pb-0 overflow-hidden items-center justify-center overflow-x-hidden'>
           {/* titulo */}
           <div className='w-full flex items-center justify-center'>
-            <h2 className='text-primary text-2xl py-2 hover:scale-105 transition duration-200 hover:cursor-default'>{titulo}</h2>
+            <h1 className='text-warning text-2xl py-2 hover:scale-105 transition duration-200 hover:cursor-default'>{titulo}</h1>
           </div>
           
          
 
           {/* etapas */}
 
-          <div className="pt-4 flex h-full w-full flex-wrap gap-6 justify-center items-center">
+          <div className="pt-1 flex h-full w-full flex-wrap gap-6 justify-center items-center hover:cursor-default">
           <p className='px-4 text-foreground text-center w-full'>{p1}</p>
-          <p className='px-4 text-foreground text-center w-full'>{p2}</p>
-
             {comoFuncionaSections.map((item, index) => {
               
               return (
-                <Popover key={item.titulo} placement="top" color={
-                  index===0? "primary":
-                  index===1? "secondary":
-                  index===2? "success":
-                  index===3? "danger":
-                  index===4? "warning":"default"
-               } >
+                <Popover key={item.titulo} placement="top" color={"primary"} >
                   <PopoverTrigger>
                     
                     <Button variant='bordered' 
-                    color={
-                         index===0? "primary":
-                         index===1? "secondary":
-                         index===2? "success":
-                         index===3? "danger":
-                         index===4? "warning":"default"
-
-                      } 
+                    color={"primary"} 
                       className="capitalize grid h-max w-max p-2">
                     <div className='h-full w-full flex justify-center items-center'>
                     {
                          index===0? <IoIosAddCircle className="text-2xl my-2"/>:
                          index===1? <IoIosBook className="text-2xl my-2"/>:
-                         index===2? <IoIosDocument className="text-2xl my-2"/>:
-                         index===3? <IoMdCheckmark className="text-2xl my-2"/>:
-                         index===4? <IoIosLock className="text-2xl my-2"/>:
-                         index===5? <IoMdHeart className="text-2xl my-2"/>:""
+                         index===2? <IoMdCheckmark className="text-2xl my-2"/>:
+                         index===3? <IoIosLock className="text-2xl my-2"/>:
+                         index===4? <IoMdHeart className="text-2xl my-2"/>:""
 
                     }
                     </div>
                     <p> 
                       {
                         index+1
-                      }
+                      }°
                       </p>
                     </Button>
                   </PopoverTrigger>
@@ -151,7 +131,6 @@ export default function HomeCmp() {
 
               )
             })}
-
           </div>
 
 
@@ -165,31 +144,23 @@ export default function HomeCmp() {
         <section id='PruebasPsicológicas' className='w-full flex-col h-full overflow-hidden items-center justify-center overflow-x-hidden'>
           {/* titulo */}
           <div className='w-full flex items-center justify-center'>
-            <h3 className='mt-16 text-primary text-2xl hover:scale-105 transition duration-200 hover:cursor-default'>{seccion1titulo}</h3>
+            <h3 className='mt-16 text-warning text-2xl hover:scale-105 transition duration-200 hover:cursor-default'>{seccion1titulo}</h3>
           </div>
         
 
           {/* etapas */}
 
-          <div className="pt-4 flex w-full flex-wrap gap-6 justify-center items-center">
-          <p className='px-16 text-foreground text-center w-full'>{seccion1Descripcion}</p>
+          <div className="pt-4 flex w-full flex-wrap gap-6 justify-center items-center hover:cursor-default">
+          <p className='px-4 text-foreground text-center w-full'>{seccion1Descripcion}</p>
           <Accordion>
             {
               pruebasPsicologicasSections.map(
-                (item, index)=>{
+                (item)=>{
                   
-                  const color=
-                    index===0? "default":
-                    index===1? "secondary":
-                    index===2? "success":
-                    index===3? "danger":
-                    index===4? "warning":
-                    index===5? "primary":"default"
-
                   return(   
                                          
                         <AccordionItem key={item.titulo} aria-label={item.titulo} subtitle="Presione para expandir" title={<span>
-                              <strong className={`text-${color}`}>{item.titulo}</strong>
+                              <strong className={`text-primary`}>{item.titulo}</strong>
                             </span>}>
                           {item.descripcion}
                         </AccordionItem>  
@@ -207,18 +178,18 @@ export default function HomeCmp() {
             
         </section>
 
-        <section id='Acercade' className='w-full pt-16 flex-col h-full md:pb-0 pb-20 overflow-hidden items-center justify-center overflow-x-hidden'>
+        <section id='Acercade' className='w-full pt-16 flex-col h-full md:pb-0 pb-5 overflow-hidden items-center justify-center overflow-x-hidden'>
           {/* titulo */}
           <div className='w-full flex items-center justify-center'>
-            <h2 className='text-primary text-2xl py-2 hover:scale-105 transition duration-200 hover:cursor-default'>Acerca de</h2>
+            <h2 className='text-warning text-2xl py-2 hover:scale-105 transition duration-200 hover:cursor-default'>Acerca de</h2>
           </div>
           
          
 
           {/* etapas */}
 
-          <div className="pt-4 px-4 grid place-items-center mb-4 md:flex h-full w-full md:flex-wrap gap-6 justify-center items-center">
-          <p className='text-foreground text-center w-full'>En el corazón de nuestra plataforma, encontrarás una dedicación inquebrantable a la salud mental y al bienestar emocional. Somos un equipo apasionado y comprometido que busca marcar la diferencia en la vida de las personas. Permítenos presentarnos:</p>
+          <div className="pt-4 px-4 grid place-items-center mb-4 md:flex h-full hover:cursor-default w-full md:flex-wrap gap-6 justify-center items-center">
+          <p className='px-4 text-foreground text-center w-full'>En el corazón de nuestra plataforma, encontrarás una dedicación inquebrantable a la salud mental y al bienestar emocional. Somos un equipo apasionado y comprometido que busca marcar la diferencia en la vida de las personas. Permítenos presentarnos:</p>
 
             <div className='grid place-items-center gap-4 px-6'>
             {acercaDeSections.map((item, index) => {
@@ -226,32 +197,64 @@ export default function HomeCmp() {
               return (
                 <Card key={item.titulo}>
                     
-                    <CardHeader className="flex w-full items-center justify-center text-warning">
+                    <CardHeader className="flex w-full items-center justify-center text-primary">
                       <div className='h-full w-full flex justify-center items-center'>
-                        <p className='text-base'> 
+                        <p className='text-base flex gap-1 text-center h-max items-center justify-center'> 
+                        <IoMdPlanet />
                           {
                             item.titulo
                           }
+                          <IoMdPlanet />
                           </p>
                       </div>
                     
                     </CardHeader>
                     <Divider/>
-                    <CardBody> <div>
-                      <div className="text-base text-center">{item.descripcion}</div>
+                    <CardBody> <div className='px-2'>
+                      <div className="text-base text-justify">{item.descripcion}</div>
                     </div></CardBody>
                     <Divider/>
-                    <CardFooter className='flex w-full items-center justify-center text-warning'>
-                      <IoIosStar />
-                      <IoIosStar />
-                      <IoIosStar />
-                      <IoIosStar />
-                      <IoIosStar />
+                    <CardFooter className='flex w-full items-center justify-center text-primary'>
+                      <IoIosInformationCircleOutline className='text-2xl'/>
                     </CardFooter>
                   </Card>
               )
             })}
+            <Divider />
+            <div>
+              
+            <div className='w-full flex items-center justify-center'>
+            <h2 className='text-danger text-2xl py-2 hover:scale-105 transition duration-200 hover:cursor-default'>Desarrollador</h2>
+          </div>
 
+            <Card className="max-w-[340px] hover:scale-105">
+              <CardHeader className="justify-between">
+                <div className="flex gap-5">
+                <Avatar
+                className='invert-0'
+                  src='/mindtracer.svg'
+                />
+                  <div className="flex flex-col gap-1 items-start justify-center">
+                    <h4 className="text-small font-semibold leading-none text-default-600">Miguel Aliaga</h4>
+                    <h5 className="text-small tracking-tight text-default-400">aliagaf404@gmail.com</h5>
+                  </div>
+                </div>
+                <Button 
+                className='ml-4'
+                  color="danger"
+                  radius="full"
+                  size="sm"
+                  variant={"ghost"}
+                  as={Link}
+                  target='_blank'
+                  href='https://github.com/emptier1621'
+                >
+                  <IoLogoGithub className='text-2xl'/>
+                </Button>
+              </CardHeader>
+              </Card>
+
+            </div>
             </div>
            
           </div>

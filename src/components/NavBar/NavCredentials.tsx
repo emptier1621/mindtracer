@@ -26,19 +26,32 @@ function NavCredentials(props:{router:any}) {
   const { isOpen: isOpenDropdown2, onOpen: onOpenDropdown2, onClose: onCloseDropdown2 } = useDisclosure();
 
   const fullname = convertTitleFormat(session?.user.nombreCompleto);
-
+  const emailData = session?.user.email
   if(status === 'authenticated'){
+    let name = ""
+    let email:String|undefined = ""
+    if(fullname.length > 12){
+      name = fullname.substring(0,12)+"..."
+    }else{
+      name = fullname
+    }
+    if(emailData !== undefined && emailData.length > 12){
+      email = emailData?.substring(0,12) + "..."
+    }else{
+      email = emailData
+    }
+
     return (
       <NavbarContent justify="end" className="md:flex">
-        <Dropdown placement="bottom-start" className="flex h-max justify-center items-center">
+        <Dropdown placement="bottom-start" className="flex h-full justify-center items-center">
           <DropdownTrigger>
             <div className="flex h-max justify-center items-center hover:cursor-pointer">
               <User
                 as="button"
                 avatarProps={{ isBordered: true, src: "/mindtracer.svg" }}
                 className="transition-transform"
-                description={session?.user.email}
-                name={fullname}
+                description={email}
+                name={name}
               />
               <IoIosArrowDown />
             </div>

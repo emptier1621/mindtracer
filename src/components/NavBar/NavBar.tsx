@@ -34,7 +34,7 @@ export default function NavBar(props:{user:any,status:'authenticated'|'unauthent
       <Navbar
         isBordered
         isMenuOpen={isMenuOpen}
-        className="fixed"
+        className="fixed w-screen"
         onMenuOpenChange={setIsMenuOpen}
       >
         <NavbarContent className="md:hidden" justify="start">
