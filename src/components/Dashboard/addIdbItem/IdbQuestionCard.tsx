@@ -1,6 +1,6 @@
 "use client"
 import axios, { AxiosError } from "axios";
-import { FormEvent } from "react";
+import { FormEvent, useState } from "react";
 import JSConfetti from 'js-confetti'
 import idbQuestions from "@/statics/IDB";
 import IdbQuestionItem from "./IdbQuestionItem";
@@ -9,8 +9,12 @@ import { IoIosHappy } from "react-icons/io";
 import Link from "next/link";
 
 function IdbQuestionCard(props:{setQuest:(value:number)=>void,setError:(value:string)=>void, quest:number}) {
+
+  const [loading, setLoading] = useState(false)
+
   const handleOnSubmit = async (e:FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+    setLoading(true)
     try {
       const formData = new FormData(e.currentTarget);
       let respuesta = Number(formData.get("respuesta"));
@@ -45,11 +49,12 @@ function IdbQuestionCard(props:{setQuest:(value:number)=>void,setError:(value:st
         props.setError(String(error));
       }
     }
+    setLoading(false)
   }
 
   const content = idbQuestions.map((item) => {
     if(props.quest === item.question){
-      return <IdbQuestionItem question={props.quest} sintoma={item.sintoma} opciones={item.opciones} key={item.question} fSumbit={handleOnSubmit}/>
+      return <IdbQuestionItem question={props.quest} sintoma={item.sintoma} opciones={item.opciones} key={item.question} fSumbit={handleOnSubmit} loading={loading} setLoading={setLoading}/>
     }
   }) 
   
