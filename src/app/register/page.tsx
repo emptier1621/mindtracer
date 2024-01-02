@@ -2,46 +2,46 @@
 import React, { FormEvent, useState } from "react";
 import { AiOutlineUserAdd } from "react-icons/ai";
 import axios, { AxiosError } from "axios";
-import { signIn } from "next-auth/react"
-import { useRouter } from 'next/navigation'
+import { signIn } from "next-auth/react";
+import { useRouter } from "next/navigation";
 import Inp from "@/components/Inp";
 import Btn from "@/components/Btn";
 import NavBar from "@/components/NavBar/NavBar";
 
 export default function RegisterPage() {
   const [error, setError] = useState("");
-  const router = useRouter()
+  const router = useRouter();
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      const formData = new FormData(e.currentTarget)
-      const password = formData.get("password")
-      const repassword = formData.get('repassword')
-      if( password === repassword ){
+      const formData = new FormData(e.currentTarget);
+      const password = formData.get("password");
+      const repassword = formData.get("repassword");
+      if (password === repassword) {
         const axiosResponse = await axios.post("/api/auth/signup", {
           nombreCompleto: formData.get("nombreCompleto"),
           genero: formData.get("genero"),
           grado: formData.get("grado"),
           password: password,
           email: formData.get("email"),
-          edad: formData.get("edad")
+          edad: formData.get("edad"),
         });
-        setError((await axiosResponse).statusText)
-        if(error === "") {
-          const res = await signIn('credentials', {
+        setError((await axiosResponse).statusText);
+        if (error === "") {
+          const res = await signIn("credentials", {
             email: axiosResponse.data.email,
             password: formData.get("password"),
-            redirect: false
-          })
+            redirect: false,
+          });
 
-          console.log(res)
+          console.log(res);
 
-          if(res?.ok) return router.push("/dashboard")
+          if (res?.ok) return router.push("/dashboard");
         }
-      }else{
-        const errorMessage = "Las contraseñas no coinciden."
-        setError(errorMessage)
+      } else {
+        const errorMessage = "Las contraseñas no coinciden.";
+        setError(errorMessage);
       }
     } catch (error) {
       console.log(error);

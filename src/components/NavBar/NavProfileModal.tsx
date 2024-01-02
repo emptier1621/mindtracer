@@ -1,47 +1,63 @@
-import { useDisclosure, Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, CardBody, Image, Card, Input, Snippet } from '@nextui-org/react';
-import { signOut, useSession } from 'next-auth/react';
-import Link from 'next/link';
-import React, { useState } from 'react'
-import { IoMdLogOut, IoMdMail, IoMdPerson, IoMdTransgender } from 'react-icons/io';
-import { BackdropType } from '../../../types/User';
-import { convertTitleFormat } from '@/libs/stringUtils';
+import {
+  useDisclosure,
+  Modal,
+  ModalContent,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+  Button,
+  CardBody,
+  Image,
+  Card,
+  Input,
+  Snippet,
+} from "@nextui-org/react";
+import { signOut, useSession } from "next-auth/react";
+import Link from "next/link";
+import React, { useState } from "react";
+import {
+  IoMdLogOut,
+  IoMdMail,
+  IoMdPerson,
+  IoMdTransgender,
+} from "react-icons/io";
+import { BackdropType } from "../../../types/User";
+import { convertTitleFormat } from "@/libs/stringUtils";
 
-
-function NavProfileModal(props:{isOpen:boolean, onClose:()=>void}) {
+function NavProfileModal(props: { isOpen: boolean; onClose: () => void }) {
   const { data: session, status } = useSession();
-  const fullname = convertTitleFormat(session?.user.nombreCompleto)
-  const gender = session?.user.genero==='M'?"Maculino":"Femenino"
-  const age = session?.user.edad + " años"
-  const grado = session?.user.grado.toString()
-  const email = session?.user.email
-  let grade = ""
-  for(let item in ["1","2","3","4","5"]){
-    if(grado === item){
-      switch(grado){
-      case "1":
-        grade = "Primer Grado - CC"
-        break
+  const fullname = convertTitleFormat(session?.user.nombreCompleto);
+  const gender = session?.user.genero === "M" ? "Maculino" : "Femenino";
+  const age = session?.user.edad + " años";
+  const grado = session?.user.grado.toString();
+  const email = session?.user.email;
+  let grade = "";
+  for (let item in ["1", "2", "3", "4", "5"]) {
+    if (grado === item) {
+      switch (grado) {
+        case "1":
+          grade = "Primer Grado - CC";
+          break;
         case "2":
-          grade = "Segundo Grado - CC"
-          break
+          grade = "Segundo Grado - CC";
+          break;
 
         case "3":
-          grade = "Tercer Grado - CC"
-          break
+          grade = "Tercer Grado - CC";
+          break;
 
         case "4":
-          grade = "Cuarto Grado - CC"
-          break
+          grade = "Cuarto Grado - CC";
+          break;
         case "5":
-          grade = "Quinto Grado - CC"
-          break
-     
+          grade = "Quinto Grado - CC";
+          break;
       }
     }
   }
   return (
     <>
-      <Modal backdrop={'blur'} isOpen={props.isOpen} onClose={props.onClose}>
+      <Modal backdrop={"blur"} isOpen={props.isOpen} onClose={props.onClose}>
         <ModalContent className="text-center ">
           {(onClose) => (
             <>
@@ -50,69 +66,80 @@ function NavProfileModal(props:{isOpen:boolean, onClose:()=>void}) {
               </ModalHeader>
               <ModalBody>
                 <Card>
-
-                <CardBody>
-                  <div className='grid grid-cols-6 md:grid-cols-12 gap-6 md:grap-4 items-center justify-center'>
-                    <div className="relative col-span-6 md:col-span-4 m-auto">
-                      <Image src={'/mindtracer.svg'} className='object-cover' height={200} shadow="md" alt={'Imagen de perfil.'}/>
+                  <CardBody>
+                    <div className="grid grid-cols-6 md:grid-cols-12 gap-6 md:grap-4 items-center justify-center">
+                      <div className="relative col-span-6 md:col-span-4 m-auto">
+                        <Image
+                          src={"/mindtracer.svg"}
+                          className="object-cover"
+                          height={200}
+                          shadow="md"
+                          alt={"Imagen de perfil."}
+                        />
+                      </div>
+                      <div className="flex flex-col col-span-6 md:col-span-8">
+                        <Input
+                          isReadOnly
+                          type="text"
+                          label="Nombre completo"
+                          variant="bordered"
+                          defaultValue={fullname}
+                          className="px-2 py-1 hover:cursor-pointer"
+                          startContent={<IoMdPerson />}
+                        />
+                        <div className="flex">
+                          <Input
+                            isReadOnly
+                            type="text"
+                            label="Género"
+                            variant="bordered"
+                            defaultValue={gender}
+                            className="px-1 py-1 w-1/2 flex hover:cursor-pointer"
+                            startContent={<IoMdTransgender />}
+                          />
+                          <Input
+                            isReadOnly
+                            type="text"
+                            label="Edad"
+                            variant="bordered"
+                            defaultValue={age}
+                            className="px-1 py-1 w-1/2 flex hover:cursor-pointer"
+                            startContent={<IoMdTransgender />}
+                          />
+                        </div>
+                        <Input
+                          isReadOnly
+                          type="text"
+                          label="Grado"
+                          variant="bordered"
+                          defaultValue={grade}
+                          className="px-2 py-1 hover:cursor-pointer"
+                          startContent={<IoMdMail />}
+                        />
+                      </div>
                     </div>
-                    <div className="flex flex-col col-span-6 md:col-span-8">
-                    <Input
-                      isReadOnly
-                      type="text"
-                      label="Nombre completo"
-                      variant="bordered"
-                      defaultValue={fullname}
-                      className="px-2 py-1 hover:cursor-pointer"
-                      startContent={<IoMdPerson/>}
-                    />
-                    <div className='flex'>
-                    <Input
-                      isReadOnly
-                      type="text"
-                      label="Género"
-                      variant="bordered"
-                      defaultValue={gender}
-                      className="px-1 py-1 w-1/2 flex hover:cursor-pointer"
-                      startContent={<IoMdTransgender/>}
-                    />
-                    <Input
-                      isReadOnly
-                      type="text"
-                      label="Edad"
-                      variant="bordered"
-                      defaultValue={age}
-                      className="px-1 py-1 w-1/2 flex hover:cursor-pointer"
-                      startContent={<IoMdTransgender/>}
-                    />
+                    <div className="flex w-full justify-center items-center mt-5 text-center">
+                      <Snippet variant="bordered" color="secondary">
+                        {email}
+                      </Snippet>
                     </div>
-                    <Input
-                      isReadOnly
-                      type="text"
-                      label="Grado"
-                      variant="bordered"
-                      defaultValue={grade}
-                      className="px-2 py-1 hover:cursor-pointer"
-                      startContent={<IoMdMail/>}
-                    />
-                    
-                    </div>
-                    
-                    
-                  </div>
-                  <div className="flex w-full justify-center items-center mt-5 text-center">
-                    <Snippet variant="bordered" color='secondary'>{email}</Snippet>
-                    </div>
-                </CardBody>
+                  </CardBody>
                 </Card>
-                
-
               </ModalBody>
               <ModalFooter className="w-full justify-center">
-              <Button color="warning" href='/dashboard/profile' variant="ghost" onClick={props.onClose}>
+                <Button
+                  color="warning"
+                  href="/dashboard/profile"
+                  variant="ghost"
+                  onClick={props.onClose}
+                >
                   Cambiar contraseña
                 </Button>
-                <Button color={'danger'} variant="ghost" onClick={props.onClose}>
+                <Button
+                  color={"danger"}
+                  variant="ghost"
+                  onClick={props.onClose}
+                >
                   Regresar
                 </Button>
               </ModalFooter>
@@ -121,7 +148,7 @@ function NavProfileModal(props:{isOpen:boolean, onClose:()=>void}) {
         </ModalContent>
       </Modal>
     </>
-  )
+  );
 }
 
-export default NavProfileModal
+export default NavProfileModal;

@@ -1,6 +1,6 @@
 export interface Usuario {
-  nombreCompleto?:string;
-  
+  nombreCompleto?: string;
+
   genero?: string;
   grado: {
     type: Number,
@@ -9,9 +9,9 @@ export interface Usuario {
   },
   email?: string;
   password?: string;
-  edad?:number
-  TAT:[{lamina:string,texto:string}]
-  IDB:{puntaje:number, clasificacion:number, respuestas:[{sintoma:string,intensidad:number}]}
+  edad?: number
+  TAT: [{ lamina: string, texto: string }]
+  IDB: { puntaje: number, clasificacion: number, respuestas: [{ sintoma: string, intensidad: number }] }
 }
 
 export type BackdropType = "opaque" | "blur" | "transparent" | undefined

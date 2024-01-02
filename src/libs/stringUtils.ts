@@ -1,4 +1,4 @@
-export const convertTitleFormat = (str: string|undefined) => {
+export const convertTitleFormat = (str: string | undefined) => {
   if (!str) {
     return "";
   }

@@ -1,7 +1,7 @@
 import { Schema, model, models } from 'mongoose'
 const generoEnum = ['M', 'F'];
 const gradoEnum = [1, 2, 3, 4, 5];
-const clasificacionEnum = [1,2,3,4]
+const clasificacionEnum = [1, 2, 3, 4]
 
 export const usuarioSchema = new Schema({
   nombreCompleto: {
@@ -50,10 +50,10 @@ export const usuarioSchema = new Schema({
   IDB: {
     type: {
       puntaje: {
-        type:Number,
+        type: Number,
       },
       clasificacion: {
-        type:Number
+        type: Number
       },
       respuestas: [{
         sintoma: String,

@@ -4,7 +4,7 @@ import { connectDB } from '@/libs/mongodb'
 import bcrypt from 'bcryptjs'
 import mongoose from 'mongoose'
 
-export async function POST(request: NextRequest, response:NextResponse) {
+export async function POST(request: NextRequest, response: NextResponse) {
   try {
     await connectDB()
 
@@ -12,10 +12,10 @@ export async function POST(request: NextRequest, response:NextResponse) {
 
     if (!password || password.length < 6) {
       return NextResponse.json({ message: "La contraseña debe tener al menos 6 caracteres." }, { status: 400 })
-    }    
+    }
 
     const userFound = await User.findOne({ email })
-    
+
     if (userFound) {
       return NextResponse.json(
         {

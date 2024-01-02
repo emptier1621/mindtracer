@@ -88,8 +88,6 @@ export default function DashboardPage() {
     }
   }, [session]);
 
-
-
   useEffect(() => {
     if (session && session.user.email === "admin@mindtracer.com") {
       axios
@@ -128,13 +126,13 @@ export default function DashboardPage() {
         .get("/api/data/getResult")
         .then((response) => {
           setResult(response.data.message.IDB.clasificacion);
-          console.log(result)
+          console.log(result);
         })
         .catch((error) => {
           console.log(error);
         });
     }
-  }, [idbPercent,tatPercent, result]);
+  }, [idbPercent, tatPercent, result]);
 
   if (status === "unauthenticated") {
     return <div className="text-danger">Sin autorización...</div>;
@@ -162,13 +160,13 @@ export default function DashboardPage() {
         });
         setFilterUsers(newUsers);
       };
-      console.log(result)
+      console.log(result);
       return (
         <>
           <header className="mt-16 overflow-x-hidden">
             <NavBar user={session.user} status={"authenticated"} />
           </header>
-          
+
           <main className="w-screen flex items-center justify-center">
             <div className="flex-col w-full items-center justify-center">
               <div className="w-full grid grid-flow-row place-items-center">
@@ -249,7 +247,8 @@ export default function DashboardPage() {
                                   : item.IDB.clasificacion === 3
                                   ? "Depresión moderada. "
                                   : item.IDB.clasificacion === 4
-                                  ? "Depresión grave. ":""}
+                                  ? "Depresión grave. "
+                                  : ""}
                                 - {item.IDB.puntaje} pts.
                               </td>
                             </tr>
@@ -281,25 +280,29 @@ export default function DashboardPage() {
         <header className="mt-16 overflow-x-hidden">
           <NavBar user={session.user} status={"authenticated"} />
         </header>
-        
-        <main className="w-screen flex-col items-center justify-center">
-          {
-            result > 0?  
-              <div className="w-full mt-10 flex justify-center items-center">
-                    <Chip color="success" className="p-2 text-2xl w-max h-max" variant="dot">{
-                      result === 1
-                      ? "Mínima depresión."
-                      : result === 2
-                      ? "Depresión leve."
-                      : result === 3
-                      ? "Depresión moderada."
-                      : result === 4
-                      ?"Depresión grave.":""
 
-                    }</Chip>
-              </div>
-            :""
-          }
+        <main className="w-screen flex-col items-center justify-center">
+          {result > 0 ? (
+            <div className="w-full mt-10 flex justify-center items-center">
+              <Chip
+                color="success"
+                className="p-2 text-2xl w-max h-max"
+                variant="dot"
+              >
+                {result === 1
+                  ? "Mínima depresión."
+                  : result === 2
+                  ? "Depresión leve."
+                  : result === 3
+                  ? "Depresión moderada."
+                  : result === 4
+                  ? "Depresión grave."
+                  : ""}
+              </Chip>
+            </div>
+          ) : (
+            ""
+          )}
           <div className="md:grid md:grid-cols-2 flex-col w-full place-items-center">
             <DashboardTestCard
               titulo="Test de Apercepción Temática"

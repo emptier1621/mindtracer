@@ -86,13 +86,12 @@ function NavRegisterModal(props: {
               redirect: false,
             });
 
-
             if (res?.ok) {
               props.router.push("/dashboard/");
               if (props.isOpen) props.onClose();
             }
           }
-        }else{
+        } else {
           const errorMessage = "Código de invitación no válido.";
           setError(errorMessage);
         }

@@ -11,11 +11,11 @@ export async function POST(request: NextRequest, response: NextResponse) {
   try {
     await connectDB()
 
-      const { lamina, texto } = await request.json()
-      const session = await getServerSession({ req: request, res: response, ...authOptions })
-      if(session){
-        const email = session.user.email
-        console.log(email)
+    const { lamina, texto } = await request.json()
+    const session = await getServerSession({ req: request, res: response, ...authOptions })
+    if (session) {
+      const email = session.user.email
+      console.log(email)
 
       if (!lamina || lamina < 1 || lamina > 20) {
         return NextResponse.json({ message: "Lamina invalida" }, { status: 400 })
@@ -60,7 +60,7 @@ export async function POST(request: NextRequest, response: NextResponse) {
           }
         )
       } else {
-        if (laminas.includes(lamina+1)) {
+        if (laminas.includes(lamina + 1)) {
           return NextResponse.json(
             { message: "La lamina ya existe." },
             { status: 400 }
@@ -80,7 +80,7 @@ export async function POST(request: NextRequest, response: NextResponse) {
         }
       }
     }
-    
+
 
 
   } catch (error) {
