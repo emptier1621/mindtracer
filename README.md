@@ -56,9 +56,6 @@ npm run build
   <img  src="/SCREENS/3.png"/>
 </p>
 <p align="center">
-  <img  src="/SCREENS/4.png"/>
-</p>
-<p align="center">
   <img  src="/SCREENS/5.png"/>
 </p>
 <p align="center">
